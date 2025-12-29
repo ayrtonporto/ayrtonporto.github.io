@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTG Analytics | Ayrton Porto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Courier+New&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="container">
+        <header>
+            <h1>MTG Data Analytics</h1>
+            <span class="subtitle">NLP & Clustering on Magic: The Gathering</span>
+        </header>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Projects ▾</button>
+                <div class="dropdown-content">
+                    <a href="project_avid.html">AVID Journal</a>
+                    <a href="project_mtg.html">MTG Data Analytics</a>
+                    <a href="project_math.html">Math & Lean 4</a>
+                </div>
+            </div>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+
+        <section>
+            <h2>Overview</h2>
+            <p>
+                This project applies <strong>Natural Language Processing (NLP)</strong> and Unsupervised Learning
+                techniques to the complex dataset of "Magic: The Gathering" cards. The goal is to move beyond simple
+                color-based classification and understand the deep semantic relationships between deck archetypes.
+            </p>
+        </section>
+
+        <section>
+            <h2>Methodology</h2>
+            <p><strong>1. Data Extraction:</strong> Scraped 20,000+ unique card texts and tournament decklists.</p>
+            <p><strong>2. Vectorization:</strong> Utilized TF-IDF and Word2Vec to convert card rules text into numerical
+                vectors, capturing mechanics like "Counter target spell" or "Destroy creature".</p>
+            <p><strong>3. Dimensionality Reduction:</strong> Applied PCA and t-SNE to visualize the high-dimensional
+                card space, revealing distinct clusters of "Control", "Aggro", and "Combo" strategies that align with
+                game theory archetypes.</p>
+        </section>
+
+        <section>
+            <h2>Key Findings</h2>
+            <p>
+                The analysis revealed that in certain "Eternal" formats, the distinction between "Midrange" and
+                "Control" decks is topologically non-existent, suggesting a continuous spectrum of control rather than
+                discrete categories.
+            </p>
+        </section>
+
+        <section>
+            <h2>Links & Resources</h2>
+            <p>
+                <a href="https://github.com/ayrtonporto/mtg-analysis" target="_blank" class="project-btn">View
+                    Repository</a>
+            </p>
+        </section>
+
+        <footer>
+            &copy; 2025 Ayrton Porto
+        </footer>
+
+    </main>
+
+</body>
+
+</html>

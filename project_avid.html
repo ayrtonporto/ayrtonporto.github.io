@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVID Journal | Ayrton Porto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Courier+New&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="container">
+        <header>
+            <h1>AVID Journal</h1>
+            <span class="subtitle">Automated Verification & Integrity Device</span>
+        </header>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Projects ▾</button>
+                <div class="dropdown-content">
+                    <a href="project_avid.html">AVID Journal</a>
+                    <a href="project_mtg.html">MTG Data Analytics</a>
+                    <a href="project_math.html">Math & Lean 4</a>
+                </div>
+            </div>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+
+        <section>
+            <h2>Project Overview</h2>
+            <p>
+                <strong>AVID Journal</strong> is an automated framework designed to assist in the peer-review process of
+                mathematical literature. It represents a novel approach to "Auto-formalization", aiming to bridge the
+                gap between unstructured LaTeX documents and formal verification systems.
+            </p>
+            <p>
+                The core challenge addressed by this project is the "Hallucination Problem" in LLMs when dealing with
+                strict logical syntax. By implementing a guided translation layer, AVID ensures that the generated code
+                is not only syntactically correct but semantically faithful to the original theorem.
+            </p>
+        </section>
+
+        <section>
+            <h2>The 6-Phase Pipeline</h2>
+            <ul class="pipeline-list">
+                <li class="pipeline-item">
+                    <span class="pipeline-title">1. Ingestion</span>
+                    Raw .tex file processing and metadata extraction. We use custom parsers to strip non-semantic LaTeX
+                    macros.
+                </li>
+                <li class="pipeline-item">
+                    <span class="pipeline-title">2. Structural Parsing</span>
+                    Semantic segmentation. Identifying Boundaries of Definitions, Theorems, Lemmas, and Proofs using a
+                    finetuned BERT model.
+                </li>
+                <li class="pipeline-item">
+                    <span class="pipeline-title">3. Formal Translation</span>
+                    Neural-driven mapping. A Specialized LLM (based on CodeLlama) translates natural language math into
+                    <strong>Coq</strong> or <strong>Lean 4</strong> code.
+                </li>
+                <li class="pipeline-item">
+                    <span class="pipeline-title">4. Formal Verification</span>
+                    The generated code is passed to the <strong>Rocq (Coq)</strong> prover. If the proof checks, the
+                    theorem is marked as "Verified".
+                </li>
+                <li class="pipeline-item">
+                    <span class="pipeline-title">5. Novelty Evaluation</span>
+                    Embedding-based redundancy detection. We compare the vectorized theorem statement against a vector
+                    database of the Mathlib library.
+                </li>
+                <li class="pipeline-item">
+                    <span class="pipeline-title">6. Publication</span>
+                    Generation of verification metrics and formal validation reports for human reviewers.
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Links & Resources</h2>
+            <p>
+                <a href="https://github.com/ayrtonporto/avid-journal" target="_blank" class="project-btn">View
+                    Repository</a>
+            </p>
+        </section>
+
+        <footer>
+            &copy; 2025 Ayrton Porto
+        </footer>
+
+    </main>
+
+</body>
+
+</html>
