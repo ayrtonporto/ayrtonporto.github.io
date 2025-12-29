@@ -8,36 +8,38 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Courier+New&display=swap"
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <main class="container">
-    <header>
-      <h1>Ayrton Porto</h1>
-      <span class="subtitle">Mathematician & AI Researcher | Formal Methods</span>
-    </header>
+  <header>
+    <div class="container header-content">
+      <a href="index.html" class="logo mono">AP.log</a>
+      <nav>
+        <a href="index.html">/root</a>
 
-    <nav>
-      <a href="index.html">Home</a>
-
-      <div class="dropdown">
-        <button class="dropbtn">Projects ▾</button>
-        <div class="dropdown-content">
-          <a href="project_avid.html">AVID Journal</a>
-          <a href="project_mtg.html">MTG Data Analytics</a>
-          <a href="project_math.html">Math & Lean 4</a>
+        <div class="dropdown">
+          <button class="dropbtn">/projects ▾</button>
+          <div class="dropdown-content">
+            <a href="project_avid.html">AVID Journal</a>
+            <a href="project_mtg.html">MTG Data Analytics</a>
+            <a href="project_math.html">Math & Lean 4</a>
+          </div>
         </div>
-      </div>
 
-      <a href="#contact">Contact</a>
-    </nav>
+        <a href="#contact">/contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
 
     <section id="about">
-      <h2>About Me</h2>
+      <h2 class="mono">> ./whoami</h2>
+      <p class="lead">Mathematician & AI Researcher | Formal Methods</p>
       <p>
         I am a Mathematician (B.S. from UNICEN, Argentina) specializing in the intersection of Large Language Models
         (LLMs) and Automated Theorem Proving (ATP). My research focuses on auto-formalization: using neural models to
@@ -46,72 +48,58 @@
     </section>
 
     <section id="featured">
-      <h2>Featured Research: AVID Journal</h2>
-      <p>
-        AVID Journal is an automated framework designed to assist in the peer-review process of mathematical literature.
-        It implements a rigorous 6-Phase Pipeline to ensure semantic consistency and novelty.
-      </p>
+      <h2 class="mono">> ./research --featured</h2>
+      <article class="blog-post">
+        <h3 class="post-title">AVID Journal Framework</h3>
+        <p>
+          AVID Journal is an automated framework designed to assist in the peer-review process of mathematical
+          literature. It implements a rigorous 6-Phase Pipeline to ensure semantic consistency and novelty.
+        </p>
 
-      <ul class="pipeline-list">
-        <li class="pipeline-item">
-          <span class="pipeline-title">1. Ingestion</span>
-          Raw .tex file processing and metadata extraction.
-        </li>
-        <li class="pipeline-item">
-          <span class="pipeline-title">2. Structural Parsing</span>
-          Semantic segmentation of definitions, theorems, and lemmas.
-        </li>
-        <li class="pipeline-item">
-          <span class="pipeline-title">3. Formal Translation</span>
-          Neural-driven mapping of natural language into Coq/Lean code.
-        </li>
-        <li class="pipeline-item">
-          <span class="pipeline-title">4. Formal Verification</span>
-          Logical validation via Proof Checkers (Coq/Rocq) to ensure correctness.
-        </li>
-        <li class="pipeline-item">
-          <span class="pipeline-title">5. Novelty Evaluation</span>
-          Embedding-based redundancy detection against a database of known formalized theorems.
-        </li>
-        <li class="pipeline-item">
-          <span class="pipeline-title">6. Publication</span>
-          Generation of verification metrics and formal validation reports.
-        </li>
-      </ul>
-    </section>
-
-    <section id="projects">
-      <h2>Projects & Code</h2>
-      <p>
-        My development contributions are available on GitHub, covering Formal Mathematics, Reproducible Research, and
-        Data Science.
-      </p>
-
-      <div class="projects-nav">
-        <a href="https://github.com/ayrtonporto/lean-logic" target="_blank" class="project-btn">
-          Lean 4 Formalizations
-        </a>
-        <a href="https://github.com/ayrtonporto/math-papers" target="_blank" class="project-btn">
-          Academic LaTeX Research
-        </a>
-        <a href="https://github.com/ayrtonporto/mtg-analysis" target="_blank" class="project-btn">
-          MTG Data Analytics
-        </a>
-      </div>
+        <div style="margin-top: 2rem;">
+          <h4 class="mono" style="color:var(--accent-cyan); margin-bottom: 1rem;">Pipeline Execution Log:</h4>
+          <ul class="pipeline-list">
+            <li class="pipeline-item">
+              <span class="pipeline-title">1. Ingestion</span>
+              Raw .tex file processing and metadata extraction.
+            </li>
+            <li class="pipeline-item">
+              <span class="pipeline-title">2. Structural Parsing</span>
+              Semantic segmentation of definitions, theorems, and lemmas.
+            </li>
+            <li class="pipeline-item">
+              <span class="pipeline-title">3. Formal Translation</span>
+              Neural-driven mapping of natural language into Coq/Lean code.
+            </li>
+            <li class="pipeline-item">
+              <span class="pipeline-title">4. Formal Verification</span>
+              Logical validation via Proof Checkers (Coq/Rocq).
+            </li>
+            <li class="pipeline-item">
+              <span class="pipeline-title">5. Novelty Evaluation</span>
+              Embedding-based redundancy detection.
+            </li>
+            <li class="pipeline-item">
+              <span class="pipeline-title">6. Publication</span>
+              Generation of verification metrics and formal validation reports.
+            </li>
+          </ul>
+        </div>
+      </article>
     </section>
 
     <section id="contact">
-      <h2>Contact</h2>
+      <h2 class="mono">> ./contact --finger</h2>
       <p class="contact-info">
         Currently seeking PhD opportunities and research collaborations. Reach out via Email or LinkedIn.
       </p>
     </section>
 
-    <footer>
-      &copy; 2025 Ayrton Porto
-    </footer>
-
   </main>
+
+  <footer>
+    <p class="mono">EOF | © 2025 Ayrton Porto</p>
+  </footer>
 
 </body>
 

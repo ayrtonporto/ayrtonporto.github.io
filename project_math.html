@@ -8,79 +8,79 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Courier+New&display=swap"
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <main class="container">
-        <header>
-            <h1>Lean 4 Formalizations</h1>
-            <span class="subtitle">Algebraic Logic & Topology</span>
-        </header>
-
-        <nav>
-            <a href="index.html">Home</a>
-            <div class="dropdown">
-                <button class="dropbtn">Projects ▾</button>
-                <div class="dropdown-content">
-                    <a href="project_avid.html">AVID Journal</a>
-                    <a href="project_mtg.html">MTG Data Analytics</a>
-                    <a href="project_math.html">Math & Lean 4</a>
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo mono">AP.log</a>
+            <nav>
+                <a href="index.html">/root</a>
+                <div class="dropdown">
+                    <button class="dropbtn">/projects ▾</button>
+                    <div class="dropdown-content">
+                        <a href="project_avid.html">AVID Journal</a>
+                        <a href="project_mtg.html">MTG Data Analytics</a>
+                        <a href="project_math.html">Math & Lean 4</a>
+                    </div>
                 </div>
-            </div>
-            <a href="index.html#contact">Contact</a>
-        </nav>
+                <a href="index.html#contact">/contact</a>
+            </nav>
+        </div>
+    </header>
 
+    <main class="container">
         <section>
-            <h2>Research Focus</h2>
-            <p>
-                My work in Pure Mathematics focuses on <strong>Algebraic Logic</strong> and <strong>Duality
-                    Theory</strong>. I am currently working on formalizing these results using the <strong>Lean
-                    4</strong> theorem prover.
-            </p>
+            <h2 class="mono">> ./projects --select "Lean 4"</h2>
+            <p class="lead" style="color:#CCCCCC;">Algebraic Logic & Topology</p>
+
+            <div class="blog-post" style="border-left: 1px dashed #FFFFFF; margin-top: 2rem;">
+                <h3 class="post-title">Research Focus</h3>
+                <p>
+                    My work in Pure Mathematics focuses on <strong>Algebraic Logic</strong> and <strong>Duality
+                        Theory</strong>. I am currently working on formalizing these results using the <strong>Lean
+                        4</strong> theorem prover.
+                </p>
+            </div>
         </section>
 
         <section>
-            <h2>Formalized Theorems</h2>
-            <p>
-                The repository contains the formal proofs for:
-            </p>
-            <ul class="pipeline-list">
+            <h2 class="mono">> ./theorems --list-verified</h2>
+            <ul class="pipeline-list" style="border-left-style: dashed; border-left-color: #CCCCCC;">
                 <li class="pipeline-item">
-                    <span class="pipeline-title">Priestley Duality</span>
+                    <span class="pipeline-title" style="color:#CCCCCC;">Priestley Duality</span>
                     Formal construction of the category of Priestley Spaces and its equivalence to Distributive
                     Lattices.
                 </li>
                 <li class="pipeline-item">
-                    <span class="pipeline-title">Canonical Extensions</span>
+                    <span class="pipeline-title" style="color:#CCCCCC;">Canonical Extensions</span>
                     Proof of existence of canonical extensions for bounded distributive lattices with monotone
                     operators.
                 </li>
             </ul>
-            <p>
+            <p style="margin-top: 1.5rem; color: #888;">
                 This work is part of a larger effort to digitize 20th-century order theory results, making them
                 accessible to AI-driven proof search algorithms.
             </p>
         </section>
 
         <section>
-            <h2>Links & Resources</h2>
-            <p>
-                <a href="https://github.com/ayrtonporto/lean-logic" target="_blank" class="project-btn">View
-                    Repository</a>
-                <a href="https://github.com/ayrtonporto/math-papers" target="_blank" class="project-btn"
-                    style="margin-left:1rem;">LaTeX Preprints</a>
-            </p>
+            <h2 class="mono">> ./links --external</h2>
+            <a href="https://github.com/ayrtonporto/lean-logic" target="_blank" class="project-btn"
+                style="border-color:#CCCCCC; color:#CCCCCC;">View Repository -></a>
+            <a href="https://github.com/ayrtonporto/math-papers" target="_blank" class="project-btn"
+                style="border-color:#CCCCCC; color:#CCCCCC; margin-left:1rem;">LaTeX Preprints -></a>
         </section>
 
-        <footer>
-            &copy; 2025 Ayrton Porto
-        </footer>
-
     </main>
+
+    <footer>
+        <p class="mono">EOF | © 2025 Ayrton Porto</p>
+    </footer>
 
 </body>
 
