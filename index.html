@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 
@@ -292,7 +294,7 @@
     <div class="container header-content">
       <a href="index.html" class="logo mono">AP.log</a>
       <nav>
-        <a href="index.html">/root</a>
+        <a href="#about">/profile</a>
 
         <div class="dropdown">
           <button class="dropbtn">/projects ▾</button>
@@ -325,31 +327,20 @@
 
       <!-- Terminal Log List -->
       <ul class="terminal-log-list">
-
-        <!-- Post 1: AVID -->
+        {% for post in site.posts limit:5 %}
         <li class="log-entry">
-          <span class="log-date">[2025-12-29]</span>
-          <span class="log-status">NEW_LOG:</span>
-          <span class="log-summary">Ingestion phase testing in AVID Journal. Successfully parsed 500+ docs.</span>
-          <a href="project_avid.html#logs" class="read-more">[Read Log]</a>
+          <span class="log-date">[{{ post.date | date: "%Y-%m-%d" }}]</span>
+          <span class="log-status">
+            {% if post.categories.first %}
+              {{ post.categories.first | upcase }}:
+            {% else %}
+              LOG:
+            {% endif %}
+          </span>
+          <span class="log-summary">{{ post.summary }}</span>
+          <a href="{{ post.url }}" class="read-more">[Read Log]</a>
         </li>
-
-        <!-- Post 2: MTG -->
-        <li class="log-entry">
-          <span class="log-date">[2025-12-20]</span>
-          <span class="log-status">ANALYSIS:</span>
-          <span class="log-summary">Cluster Analysis of the Legacy Metagame. t-SNE reveals distinct archetypes.</span>
-          <a href="project_mtg.html#logs" class="read-more">[Read Log]</a>
-        </li>
-
-        <!-- Post 3: LEAN -->
-        <li class="log-entry">
-          <span class="log-date">[2025-12-10]</span>
-          <span class="log-status">DEV_LOG:</span>
-          <span class="log-summary">Automating Duality Proofs in Lean 4. Custom `lattice_iso` tactic implemented.</span>
-          <a href="project_math.html#logs" class="read-more">[Read Log]</a>
-        </li>
-
+        {% endfor %}
       </ul>
     </section>
 
