@@ -34,56 +34,118 @@
     </header>
 
     <main class="container">
-        <section id="analysis">
+        <section id="intro">
             <h2 class="mono">> ./projects --select "MTG Data"</h2>
-            <p class="lead" style="color:#E0C3FC;">NLP & Clustering on Magic: The Gathering</p>
-
+            <p class="lead" style="color:#E0C3FC;">Data Analytics applied to Magic: The Gathering</p>
             <div class="blog-post" style="border-left-color: #9D50BB; margin-top:2rem;">
-                <h3 class="post-title">Overview</h3>
                 <p>
-                    This project applies <strong>Natural Language Processing (NLP)</strong> and Unsupervised Learning
-                    techniques to the complex dataset of "Magic: The Gathering" cards. The goal is to move beyond simple
-                    color-based classification and understand the deep semantic relationships between deck archetypes.
+                    This line of work focuses on the use of data analysis and statistical modeling to study the
+                    Commander (EDH) format, with particular emphasis on identifying genuine card synergies, archetypal
+                    structure, and the effective relevance of cards within the metagame.
+                </p>
+                <p>
+                    Rather than reproducing existing tools, the goal is to correct and formalize prior approaches that
+                    lacked well-defined metrics, transforming them into analytical instruments that are interpretable,
+                    reproducible, and methodologically sound.
                 </p>
             </div>
         </section>
 
-        <section>
-            <h2 class="mono">> ./methodology --analyze</h2>
+        <section id="pyedhrec">
+            <h2 class="mono">> ./pyedhrec --status active</h2>
+            <h3 class="post-title" style="color: #E0C3FC;">pyEDHREC</h3>
+            <p class="mono" style="color: #9D50BB; margin-bottom: 1rem;">Metric-based reformulation of synergy analysis
+                in Commander</p>
+
             <div class="blog-post" style="border-left-color: #9D50BB;">
-                <p><strong>1. Data Extraction:</strong> Scraped 20,000+ unique card texts and tournament decklists.</p>
-                <p><strong>2. Vectorization:</strong> Utilized TF-IDF and Word2Vec to convert card rules text into
-                    numerical vectors, capturing mechanics like "Counter target spell" or "Destroy creature".</p>
-                <p><strong>3. Dimensionality Reduction:</strong> Applied PCA and t-SNE to visualize the high-dimensional
-                    card space, revealing distinct clusters of "Control", "Aggro", and "Combo" strategies that align
-                    with game theory archetypes.</p>
-            </div>
-
-            <h3 class="mono" style="margin-top:2rem;">> ./results</h3>
-            <p style="border-left: 1px solid #9D50BB; padding-left: 1rem;">
-                The analysis revealed that in certain "Eternal" formats, the distinction between "Midrange" and
-                "Control" decks is topologically non-existent, suggesting a continuous spectrum of control rather than
-                discrete categories.
-            </p>
-        </section>
-
-        <section id="logs">
-            <h2 class="mono">> ./logs --filter "MTG"</h2>
-            <div class="project-logs" style="border-color:#9D50BB;">
-                <ul class="terminal-log-list" style="margin-top:0;">
-                    <li class="log-entry">
-                        <span class="log-date">[2025-12-20]</span>
-                        <span class="log-status" style="color:#E0C3FC;">ANALYSIS:</span>
-                        <strong>Cluster Analysis of the Legacy Meta.</strong> t-SNE visualization shows "Delver" decks
-                        form a central cluster, while "Combo" decks are topological outliers.
+                <p>
+                    The pyEDHREC project existed previously as an EDHREC-inspired implementation, but it suffered from
+                    fundamental issues: unstable results, absence of explicit metrics, and limited explanatory power.
+                </p>
+                <p>
+                    The work presented here consists of a complete methodological renewal, introducing:
+                </p>
+                <ul class="pipeline-list">
+                    <li class="pipeline-item">
+                        <span class="pipeline-title">Formal Metrics</span>
+                        Modeling the probability of a card appearing conditional on a commander ($P(x|c)$).
                     </li>
-                    <li class="log-entry">
-                        <span class="log-date">[2025-11-05]</span>
-                        <span class="log-status" style="color:#E0C3FC;">SCRAPER:</span>
-                        Scraped 20k cards from Scryfall API.
+                    <li class="pipeline-item">
+                        <span class="pipeline-title">Objective Criteria</span>
+                        Identifying informative card sets $I(c)$.
+                    </li>
+                    <li class="pipeline-item">
+                        <span class="pipeline-title">Extremal Measures</span>
+                        Using $p_{\max}$ to detect strong strategic dependencies.
                     </li>
                 </ul>
+                <p>
+                    On top of this foundation, a card evaluation program was developed to:
+                </p>
+                <ul>
+                    <li>Classify how strong a card is in Commander from a statistical perspective.</li>
+                    <li>Identify cards with marginal or effectively no play in the format.</li>
+                    <li>Distinguish superficial popularity from actual structural impact in deck construction.</li>
+                </ul>
+                <p style="margin-top: 1rem; border-top: 1px dashed #2e3d4d; padding-top: 1rem;">
+                    <strong>Result:</strong> A stable, useful, and analytically rigorous tool, suitable for commander
+                    comparison, archetype analysis, and global evaluation of the EDH card pool.
+                </p>
+                <p class="mono" style="font-size: 0.9rem; color:#E0C3FC;">
+                    [STATUS: Active and Functional]<br>
+                    [CONTRIBUTION: Metric formalization, Objective evaluation, Irrelevance detection]
+                </p>
             </div>
+        </section>
+
+        <section id="clustering">
+            <h2 class="mono">> ./clustering --status legacy</h2>
+            <h3 class="post-title" style="color: #E0C3FC;">Clustering EDH</h3>
+            <p class="mono" style="color: #9D50BB; margin-bottom: 1rem;">Unsupervised deck classification: limits and
+                insights</p>
+
+            <div class="blog-post" style="border-left-color: #9D50BB;">
+                <p>
+                    As a natural extension of the previous work, unsupervised clustering techniques were explored to
+                    group Commander decks according to structural similarity.
+                </p>
+                <p>
+                    While these methods produced reasonable groupings, the analysis showed that they do not provide
+                    significant new insight beyond existing and well-documented approaches. Consequently, the project
+                    was discontinued as a tool, but retained as a theoretical and methodological case study.
+                </p>
+                <p><strong>Ongoing and planned articles derived from this work analyze:</strong></p>
+                <ul class="pipeline-list">
+                    <li class="pipeline-item">
+                        <span class="pipeline-title">Structural Failure</span>
+                        Why clustering often fails to capture meaningful structure in EDH.
+                    </li>
+                    <li class="pipeline-item">
+                        <span class="pipeline-title">Information Loss</span>
+                        The loss of semantic information when decks are reduced to vectors.
+                    </li>
+                    <li class="pipeline-item">
+                        <span class="pipeline-title">Conditions for Utility</span>
+                        The conditions under which such methods could become genuinely informative.
+                    </li>
+                </ul>
+                <p class="mono" style="font-size: 0.9rem; color:#E0C3FC;">
+                    [STATUS: Closed as tool, Active as research]<br>
+                </p>
+            </div>
+        </section>
+
+        <section id="outlook">
+            <h2 class="mono">> ./outlook --future</h2>
+            <p>This MTG Data Analytics line aims to:</p>
+            <ul style="list-style: none; padding-left: 0;">
+                <li style="margin-bottom: 0.5rem;"><span style="color:#9D50BB;">>></span> Develop explanatory,
+                    metric-driven tools rather than purely descriptive ones.</li>
+                <li style="margin-bottom: 0.5rem;"><span style="color:#9D50BB;">>></span> Produce technical articles on
+                    the limitations of popular data-analysis methods in complex games.</li>
+                <li style="margin-bottom: 0.5rem;"><span style="color:#9D50BB;">>></span> Contribute to a more rigorous
+                    understanding of the Commander metagame.</li>
+            </ul>
         </section>
 
         <section>
