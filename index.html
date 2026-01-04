@@ -1,5 +1,3 @@
----
----
 <!DOCTYPE html>
 <html lang="en">
 
@@ -92,13 +90,6 @@
       align-items: center;
     }
 
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      border: 1px solid var(--accent-cyan);
-      padding: 0.2rem 0.8rem;
-      box-shadow: 2px 2px 0 var(--accent-cyan);
-    }
 
     /* Navigation & Dropdown */
     nav {
@@ -292,7 +283,7 @@
 
   <header>
     <div class="container header-content">
-      <a href="index.html" class="logo mono">AP.log</a>
+      <a href="index.html" class="logo"><img src="assets/ap_logo.png" alt="AP.log" class="logo-img"></a>
       <nav>
         <a href="profile.html">/profile</a>
 
@@ -336,7 +327,7 @@
       <div class="dashboard-card">
         <div class="card-content">
           <h3 class="mono card-title">AVID Journal</h3>
-          <p>A neuro-symbolic pipeline for auto-formalizing mathematical papers using Gemini 1.5 Pro.</p>
+          <p>A neuro-symbolic pipeline for auto-formalizing mathematical papers using Gemini 2.0.</p>
           <a href="project_avid.html" class="read-more">[Explore Project]</a>
         </div>
         <div class="card-image-wrapper">
@@ -349,11 +340,11 @@
       <div class="dashboard-card reverse">
         <div class="card-content">
           <h3 class="mono card-title">Formal Methods</h3>
-          <p>Experimenting with formalizing logical structures in Lean 4 and Coq.</p>
+          <p>Experimenting with formalizing my undergraduate thesis in Lean 4.</p>
           <a href="project_math.html" class="read-more">[Explore Project]</a>
         </div>
         <div class="card-image-wrapper">
-          <img src="assets/lean_code_screenshot.png" alt="Formal Methods" class="card-image"
+          <img src="assets/lean_code.png" alt="Formal Methods" class="card-image"
             onerror="this.parentElement.innerHTML='<div class=\'img-placeholder mono\'>[IMG: lean_code.png]</div>'">
         </div>
       </div>
@@ -362,7 +353,7 @@
       <div class="dashboard-card">
         <div class="card-content">
           <h3 class="mono card-title">MTG Analytics</h3>
-          <p>Competitive data analysis and game theory applied to Magic: The Gathering.</p>
+          <p>Data analysis applied to Magic: The Gathering for deck-building.</p>
           <a href="project_mtg.html" class="read-more">[Explore Project]</a>
         </div>
         <div class="card-image-wrapper">
@@ -370,25 +361,6 @@
             onerror="this.parentElement.innerHTML='<div class=\'img-placeholder mono\'>[IMG: mtg_graph.png]</div>'">
         </div>
       </div>
-
-    </section>
-
-    <!-- Journal Section -->
-    <section id="journal" class="dashboard-section">
-      <h2 class="mono">> ./journal --latest</h2>
-
-      <ul class="terminal-log-list">
-        {% for post in site.posts limit:3 %}
-        <li class="log-entry">
-          <span class="log-date">[{{ post.date | date: "%Y-%m-%d" }}]</span>
-          <span class="log-summary">
-            <strong>{{ post.title }}</strong> - {{ post.summary }}
-          </span>
-          <a href="{{ post.url }}" class="read-more">[Read More]</a>
-        </li>
-        {% endfor %}
-      </ul>
-    </section>
 
   </main>
 

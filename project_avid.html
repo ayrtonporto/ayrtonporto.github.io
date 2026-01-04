@@ -17,7 +17,7 @@
 
     <header>
         <div class="container header-content">
-            <a href="index.html" class="logo mono">AP.log</a>
+            <a href="index.html" class="logo"><img src="assets/ap_logo.png" alt="AP.log" class="logo-img"></a>
             <nav>
                 <a href="profile.html">/profile</a>
                 <div class="dropdown">
@@ -36,20 +36,28 @@
     <main class="container">
         <section id="overview">
             <h2 class="mono">> ./projects --select "AVID Journal"</h2>
-            <p class="lead" style="color:var(--accent-cyan);">Automated Verification & Integrity Device</p>
+            <p class="lead" style="color:var(--accent-cyan);">Automated Verification & Integrity Pipeline</p>
 
-            <div class="blog-post" style="margin-top: 2rem;">
-                <h3 class="post-title">Project Overview</h3>
-                <p>
-                    <strong>AVID Journal</strong> is an automated framework designed to assist in the peer-review
-                    process of mathematical literature. It represents a novel approach to "Auto-formalization", aiming
-                    to bridge the gap between unstructured LaTeX documents and formal verification systems.
-                </p>
-                <p>
-                    The core challenge addressed by this project is the "Hallucination Problem" in LLMs when dealing
-                    with strict logical syntax. By implementing a guided translation layer, AVID ensures that the
-                    generated code is not only syntactically correct but semantically faithful to the original theorem.
-                </p>
+            <div class="dashboard-card" style="margin-top: 2rem;">
+                <div class="card-content">
+                    <h3 class="post-title" style="margin-top:0; font-size:1.5rem;">Project Overview</h3>
+                    <p>
+                        <strong>AVID Journal</strong> is an automated framework designed to assist in the peer-review
+                        process of mathematical literature. It represents a novel approach to "Auto-formalization",
+                        aiming
+                        to bridge the gap between structured LaTeX documents and formal verification systems.
+                    </p>
+                    <p>
+                        While LLM "Hallucinations" regarding strict syntax are a known hurdle (addressed in my separate
+                        reverse-translation experiments), this project confronts the <strong>Verification of
+                            Novelty</strong>: the difficulty of cross-referencing a new theorem against the immense,
+                        unformalized corpus of mathematical history to determine if it has been proven before.
+                    </p>
+                </div>
+                <div class="card-image-wrapper">
+                    <img src="assets/avid_poster.png" alt="AVID Project" class="card-image"
+                        onerror="this.parentElement.innerHTML='<div class=\'img-placeholder mono\'>[IMG: avid_poster.png]</div>'">
+                </div>
             </div>
         </section>
 
@@ -58,18 +66,21 @@
             <ul class="pipeline-list">
                 <li class="pipeline-item">
                     <span class="pipeline-title">1. Ingestion</span>
-                    Raw .tex file processing and metadata extraction. We use custom parsers to strip non-semantic LaTeX
-                    macros.
+                    Raw .tex file processing and metadata extraction.
                 </li>
                 <li class="pipeline-item">
                     <span class="pipeline-title">2. Structural Parsing</span>
-                    Semantic segmentation. Identifying Boundaries of Definitions, Theorems, Lemmas, and Proofs using a
-                    finetuned BERT model.
+                    Semantic segmentation. Identifying Boundaries of Definitions, Theorems, Lemmas, and Proofs.
+                    Currently utilizing <strong>Gemini</strong>, though rule-based heuristic parsing is being explored
+                    for
+                    improvement and determinism.
                 </li>
                 <li class="pipeline-item">
                     <span class="pipeline-title">3. Formal Translation</span>
-                    Neural-driven mapping. A Specialized LLM (based on CodeLlama) translates natural language math into
-                    <strong>Coq</strong> or <strong>Lean 4</strong> code.
+                    Neural-driven mapping. <strong>Gemini 2.0</strong> is employed to translate natural language math
+                    into <strong>Coq</strong> code (selected for higher compilation success rates compared to Lean 4
+                    regarding
+                    this specific task).
                 </li>
                 <li class="pipeline-item">
                     <span class="pipeline-title">4. Formal Verification</span>
@@ -78,8 +89,10 @@
                 </li>
                 <li class="pipeline-item">
                     <span class="pipeline-title">5. Novelty Evaluation</span>
-                    Embedding-based redundancy detection. We compare the vectorized theorem statement against a vector
-                    database of the Mathlib library.
+                    Currently conceptual. While automated comparison against libraries like <strong>Mathlib</strong> is
+                    the long-term goal, the system currently acts as a force multiplier for human reviewers. By
+                    automating the logical verification (Steps 1-4), AVID allows referees to focus their expertise
+                    exclusively on judging historical novelty and context.
                 </li>
                 <li class="pipeline-item">
                     <span class="pipeline-title">6. Publication</span>
@@ -88,23 +101,7 @@
             </ul>
         </section>
 
-        <section id="logs">
-            <h2 class="mono">> ./logs --filter "AVID"</h2>
-            <div class="project-logs">
-                <ul class="terminal-log-list" style="margin-top:0;">
-                    <li class="log-entry">
-                        <span class="log-date">[2025-12-29]</span>
-                        <span class="log-status">NEW_LOG:</span>
-                        Ingestion phase testing. Parsing accuracy at 94%.
-                    </li>
-                    <li class="log-entry">
-                        <span class="log-date">[2025-12-15]</span>
-                        <span class="log-status">INIT:</span>
-                        Repo created. Environment set up with Coq and Lean 4.
-                    </li>
-                </ul>
-            </div>
-        </section>
+
 
         <section id="links">
             <h2 class="mono">> ./links --external</h2>

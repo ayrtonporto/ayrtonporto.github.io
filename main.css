@@ -77,11 +77,20 @@ header {
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    border: 1px solid var(--accent-cyan);
-    padding: 0.2rem 0.8rem;
-    box-shadow: 2px 2px 0 var(--accent-cyan);
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 40px; /* Adjust based on preference */
+    width: auto;
+    transition: transform 0.2s ease;
+}
+
+.logo:hover .logo-img {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 5px var(--accent-cyan));
 }
 
 /* Navigation & Dropdown */
@@ -510,7 +519,8 @@ footer {
 /* Project Cards */
 .dashboard-card {
     display: flex;
-    align-items: stretch;
+    align-items: center;
+    /* Changed from stretch to center to avoid forcing height */
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     margin-bottom: 2rem;
@@ -531,6 +541,7 @@ footer {
 
 .card-content {
     flex: 1;
+    /* Takes up remaining space */
     padding: 2rem;
     display: flex;
     flex-direction: column;
@@ -543,7 +554,10 @@ footer {
 }
 
 .card-image-wrapper {
-    flex: 1;
+    flex: 0 0 40%;
+    /* Fixed width percentage for image column */
+    max-width: 450px;
+    /* Max width constraint */
     min-width: 300px;
     background: #000;
     display: flex;
@@ -554,10 +568,12 @@ footer {
 
 .card-image {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    min-height: 250px;
-    opacity: 0.8;
+    height: auto;
+    /* Natural height to maintain aspect ratio */
+    display: block;
+    object-fit: contain;
+    /* Ensures full image is visible */
+    opacity: 0.9;
     transition: opacity 0.2s ease;
 }
 

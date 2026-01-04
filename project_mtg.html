@@ -17,7 +17,7 @@
 
     <header>
         <div class="container header-content">
-            <a href="index.html" class="logo mono">AP.log</a>
+            <a href="index.html" class="logo"><img src="assets/ap_logo.png" alt="AP.log" class="logo-img"></a>
             <nav>
                 <a href="profile.html">/profile</a>
                 <div class="dropdown">
@@ -110,26 +110,34 @@
             <p class="mono" style="color: #9D50BB; margin-bottom: 1rem;">Unsupervised deck classification: limits and
                 insights</p>
 
-            <div class="blog-post" style="border-left-color: #9D50BB;">
-                <p>
-                    As a natural extension of the previous work, unsupervised clustering techniques were explored to
-                    group Commander decks according to structural similarity.
-                </p>
-                <p>
-                    While these methods produced reasonable groupings, the analysis showed that they do not provide
-                    significant new insight beyond existing and well-documented approaches. Consequently, the project
-                    was discontinued as a tool, but retained as a theoretical and methodological case study.
-                </p>
-                <div style="margin-top: 1.5rem; padding: 1rem; border: 1px dashed #2e3d4d; background: #1a1a1a;">
-                    <p class="mono" style="color: #66FCF1; margin-top: 0;">>> REFERENCE_RECOMMENDATION</p>
+            <div class="dashboard-card">
+                <div class="card-content">
                     <p>
-                        For the state-of-the-art in EDH deck clustering, referencing a project that utilizes the full
-                        EDHREC dataset:
+                        As a natural extension of the previous work, unsupervised clustering techniques were explored to
+                        group Commander decks according to structural similarity.
                     </p>
-                    <a href="https://luckypaper.co/resources/commander-map/" target="_blank"
-                        style="color: #E0C3FC; text-decoration: underline;">
-                        Lucky Paper's Commander Map ->
-                    </a>
+                    <p>
+                        While these methods produced reasonable groupings, the analysis showed that they do not provide
+                        significant new insight beyond existing and well-documented approaches. Consequently, the
+                        project
+                        was discontinued as a tool, but retained as a theoretical and methodological case study.
+                    </p>
+                    <div style="margin-top: 1.5rem; padding: 1rem; border: 1px dashed #2e3d4d; background: #1a1a1a;">
+                        <p class="mono" style="color: #66FCF1; margin-top: 0;">>> REFERENCE_RECOMMENDATION</p>
+                        <p>
+                            For the state-of-the-art in EDH deck clustering, referencing a project that utilizes the
+                            full
+                            EDHREC dataset:
+                        </p>
+                        <a href="https://luckypaper.co/resources/commander-map/" target="_blank"
+                            style="color: #E0C3FC; text-decoration: underline;">
+                            Lucky Paper's Commander Map ->
+                        </a>
+                    </div>
+                </div>
+                <div class="card-image-wrapper">
+                    <img src="assets/mtg_card_clustering.png" alt="Clustering Visualization" class="card-image"
+                        onerror="this.parentElement.innerHTML='<div class=\'img-placeholder mono\'>[IMG: mtg_card_clustering.png]</div>'">
                 </div>
             </div>
         </section>
