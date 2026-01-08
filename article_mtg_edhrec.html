@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Más allá de pyEDHREC | Ayrton Porto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" type="image/png" href="assets/ap_logo.png">
+    <style>
+        /* Article Specific Styles for Dark Mode Adaptation */
+        .formula {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-left: 4px solid var(--accent-cyan);
+            margin: 2rem 0;
+            font-family: var(--font-mono);
+            color: var(--text-header);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .matrix-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .quadrant {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s ease;
+        }
+
+        .quadrant:hover {
+            transform: translateY(-3px);
+        }
+
+        .q1 {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 10px rgba(102, 252, 241, 0.1);
+        }
+
+        .q2 {
+            border-color: var(--accent-muted);
+            border-style: dashed;
+        }
+
+        .q3 {
+            border-color: var(--border-color);
+            opacity: 0.8;
+        }
+
+        .q4 {
+            border-color: #777;
+            opacity: 0.5;
+            border-style: dotted;
+        }
+
+        .quadrant h3 {
+            margin-top: 0;
+            font-size: 1.1rem;
+            font-family: var(--font-mono);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            color: var(--text-main);
+            background: var(--bg-card);
+            font-size: 0.95rem;
+        }
+
+        th,
+        td {
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            text-align: left;
+        }
+
+        th {
+            background: rgba(11, 12, 16, 0.8);
+            color: var(--accent-cyan);
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            border-bottom: 2px solid var(--accent-cyan);
+        }
+
+        /* Status Colors (Dark Mode Adapted) */
+        .muy-buena {
+            background: rgba(102, 252, 241, 0.15);
+            /* Green/Cyan tint */
+        }
+
+        .muy-buena td:first-child {
+            font-weight: bold;
+            color: var(--text-header);
+        }
+
+        .buena {
+            background: rgba(69, 162, 158, 0.15);
+            /* Muted Cyan tint */
+        }
+
+        .mala {
+            background: rgba(200, 100, 100, 0.1);
+            /* Red tint */
+            color: #aaa;
+        }
+
+        code {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--accent-cyan);
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: var(--font-mono);
+            font-size: 0.85em;
+        }
+
+        /* Scatter Plot Styles */
+        .scatter-container {
+            position: relative;
+            height: 400px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            margin: 3rem 0;
+            border-radius: 4px;
+            overflow: visible;
+            /* Allow labels to pop out slightly if needed */
+        }
+
+        /* Grid Lines for Quadrants */
+        .scatter-grid-vertical {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: var(--border-color);
+            border-left: 1px dashed #666;
+        }
+
+        .scatter-grid-horizontal {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--border-color);
+            border-top: 1px dashed #666;
+        }
+
+        /* Labels Axis */
+        .axis-label {
+            position: absolute;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-main);
+        }
+
+        .axis-y-top {
+            top: 10px;
+            left: 10px;
+            color: var(--accent-cyan);
+        }
+
+        .axis-x-right {
+            bottom: 10px;
+            right: 10px;
+            color: var(--accent-cyan);
+        }
+
+        .axis-origin {
+            bottom: 10px;
+            left: 10px;
+        }
+
+        /* Data Points */
+        .point {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
+            border: 2px solid var(--bg-dark);
+            box-shadow: 0 0 5px var(--accent-cyan);
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            transform: translate(-50%, 50%);
+            /* Centering the dot on coords */
+        }
+
+        .point:hover {
+            transform: translate(-50%, 50%) scale(1.5);
+            z-index: 10;
+        }
+
+        .point .tooltip {
+            visibility: hidden;
+            width: 140px;
+            background-color: var(--bg-dark);
+            color: #fff;
+            text-align: center;
+            border-radius: 4px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            /* Position above */
+            left: 50%;
+            margin-left: -70px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            border: 1px solid var(--accent-cyan);
+            font-size: 0.75rem;
+            font-family: var(--font-mono);
+        }
+
+        .point:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .matrix-container {
+                grid-template-columns: 1fr;
+            }
+
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo"><img src="assets/ap_logo.png" alt="AP.log" class="logo-img"></a>
+            <nav>
+                <a href="profile.html">/profile</a>
+                <div class="dropdown">
+                    <button class="dropbtn">/projects ▾</button>
+                    <div class="dropdown-content">
+                        <a href="project_avid.html">AVID Journal</a>
+                        <a href="project_mtg.html">MTG Data Analytics</a>
+                        <a href="project_math.html">Math & Lean 4</a>
+                    </div>
+                </div>
+                <a href="contact.html">/contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <a href="project_mtg.html" class="mono" style="font-size: 0.8rem; margin-bottom: 1rem; display: block;">&lt;
+            ./cd .. (Back to Project)</a>
+
+        <section id="article-header" style="border-bottom: none; padding-bottom: 0;">
+            <h1 class="mono section-title" style="margin-top: 0; font-size: 2rem;">> ./article "Más allá de pyEDHREC"
+            </h1>
+            <p class="lead" style="color: var(--accent-cyan);">Maximización de Inventario mediante Análisis de Metajuego
+            </p>
+        </section>
+
+        <section id="content" style="padding-top: 1rem;">
+            <p class="intro"
+                style="font-style: italic; color: var(--text-main); font-size: 1.1rem; border-left: 2px solid var(--accent-muted); padding-left: 1rem;">
+                En el ecosistema de <strong>Commander (EDH)</strong>, EDHREC es la referencia estándar. Sin embargo,
+                existe una brecha crítica:
+                conocer la popularidad de una carta no nos dice si es útil en <em>nuestra</em> colección.
+                El proyecto <strong>pyEDHREC 2.0</strong> nace para resolver este problema, evolucionando las
+                herramientas de scraping originales hacia un sistema de análisis de inventario capaz de distinguir entre
+                "ruido" y "señal".
+            </p>
+
+            <h2 class="mono" style="margin-top: 3rem; color: #FFFFFF;">1. El Problema: Datos vs. Información</h2>
+            <p>
+                La librería <code>pyedhrec</code> original (actualmente deprecada/no funcional) operaba como un
+                <em>wrapper</em> de scraping, dado que EDHREC carece de una API pública oficial. Su función era
+                descargar datos crudos. Pero el dato bruto es solo descriptivo: saber que "Sol Ring está en el 84% de
+                los mazos" es trivial.
+            </p>
+            <p>
+                El verdadero desafío no es la obtención del dato, sino su <strong>interpretación contextual</strong>.
+                ¿Esa carta que tengo en mi carpeta es jugable porque es buena, o solo aparece en las estadísticas porque
+                venía en un precon muy vendido?
+            </p>
+            <p>
+                <strong>pyEDHREC 2.0</strong> cambia el enfoque: toma el JSON completo de cada carta y lo analiza bajo
+                dos vertientes simultáneas:
+            </p>
+            <ul class="pipeline-list">
+                <li class="pipeline-item">
+                    <span class="pipeline-title">Como Comandante</span>
+                    Si la carta es legendaria, extraemos sus <em>signature cards</em> y la estructura promedio de sus
+                    mazos.
+                </li>
+                <li class="pipeline-item">
+                    <span class="pipeline-title">Como Carta</span>
+                    Verificamos sus métricas de inclusión en el resto del formato para determinar su versatilidad.
+                </li>
+            </ul>
+
+            <h2 class="mono" style="margin-top: 3rem; color: #FFFFFF;">2. Métricas Técnicas: $I(c)$ y $p_{\max}$
+            </h2>
+            <p>Para categorizar objetivamente un inventario finito frente a un metajuego infinito, definimos dos
+                indicadores clave:</p>
+
+            <div class="formula">
+                <strong style="display: block; margin-bottom: 0.5rem; color: var(--accent-cyan);">Inclusión Global
+                    I(c):</strong>
+                $I(c) = \frac{\text{Mazos que usan la carta}}{\text{Mazos con identidad de color compatible}}$
+            </div>
+            <p>
+                Esta redefinición es crucial. No dividimos por el total absoluto de mazos, sino por aquellos donde
+                legalmente se puede jugar la carta. Un $I(c)$ alto indica una "Staple": una carta que funciona en casi
+                cualquier estrategia de sus colores.
+            </p>
+
+            <div class="formula">
+                <strong style="display: block; margin-bottom: 0.5rem; color: var(--accent-cyan);">Techo de Inclusión
+                    p<sub>max</sub>:</strong>
+                $p_{\max} = \max [ P(\text{carta} | \text{comandante}_i) ]$ ∀ comandantes $i$
+            </div>
+            <p>
+                El <strong>Techo de Inclusión</strong> revela el potencial máximo de la carta en su mejor escenario
+                posible ("Best Case Scenario"). Si una carta tiene un $I(c)$ bajo pero un $p_{\max}$ del 90%, significa
+                que es una pieza de nicho insustituible para un arquetipo específico (ej. mazos de una tribu o mecánica
+                concreta).
+            </p>
+
+            <h2 class="mono" style="margin-top: 3rem; color: #FFFFFF;">3. Matriz de Decisión y Distribución</h2>
+            <p>Al cruzar estas variables, clasificamos cada carta de la colección del usuario en cuatro cuadrantes
+                estratégicos:</p>
+
+            <div class="matrix-container">
+                <div class="quadrant q1">
+                    <h3 class="mono" style="color: var(--accent-cyan);">Staples Absolutos</h3>
+                    <p><strong>Alto $I(c)$ + Alto $p_{\max}$.</strong> Cartas universales que definen el formato.
+                        Prioridad máxima de conservación.</p>
+                </div>
+                <div class="quadrant q2">
+                    <h3 class="mono" style="color: var(--accent-muted);">Especialistas de Nicho</h3>
+                    <p><strong>Bajo $I(c)$ + Alto $p_{\max}$.</strong> El "alma" de mazos específicos. No son genéricas,
+                        pero son críticas cuando encuentran su hogar.</p>
+                </div>
+                <div class="quadrant q3">
+                    <h3 class="mono" style="color: var(--text-main);">Relleno Genérico</h3>
+                    <p><strong>Alto $I(c)$ + Bajo $p_{\max}$.</strong> Cartas funcionales (manarocks comunes, removers
+                        básicos) que juegan en todos lados pero nunca brillan. Útiles para rellenar huecos.</p>
+                </div>
+                <div class="quadrant q4">
+                    <h3 class="mono" style="color: #888;">Bulk / Chaff</h3>
+                    <p><strong>Bajo $I(c)$ + Bajo $p_{\max}$.</strong> Ruido estadístico. Cartas que no aportan valor
+                        significativo al metajuego actual.</p>
+                </div>
+            </div>
+
+            <!-- Scatter Plot Visualization -->
+            <div class="scatter-container">
+                <div class="scatter-grid-vertical"></div>
+                <div class="scatter-grid-horizontal"></div>
+
+                <span class="axis-label axis-y-top">↑ Sinergia ($p_{\max}$)</span>
+                <span class="axis-label axis-x-right">Inclusión Global ($I(c)$) →</span>
+                <span class="axis-label axis-origin">0</span>
+
+                <!-- Sol Ring: 84% I, 98% S -> Q1 -->
+                <div class="point" style="left: 84%; bottom: 98%;">
+                    <span class="tooltip">Sol Ring<br>I: 0.84 | S: 0.98</span>
+                </div>
+
+                <!-- Cyclonic Rift: 35% I, 65% S -> Q1 high end -->
+                <div class="point" style="left: 35%; bottom: 65%;">
+                    <span class="tooltip">Cyclonic Rift<br>I: 0.35 | S: 0.65</span>
+                </div>
+
+                <!-- Shadowborn Apostle: 1% I, 92% S -> Q2 (Extreme Niche) -->
+                <div class="point" style="left: 5%; bottom: 92%;">
+                    <span class="tooltip">Shadowborn Apostle<br>I: 0.01 | S: 0.92</span>
+                </div>
+
+                <!-- Cultivate: 45% I, 40% S -> Q3/Q1 border (Generic) -->
+                <div class="point" style="left: 45%; bottom: 40%;">
+                    <span class="tooltip">Cultivate<br>I: 0.45 | S: 0.40</span>
+                </div>
+
+                <!-- An Offer You Can't Refuse: 22% I, 45% S -> Mid -->
+                <div class="point" style="left: 22%; bottom: 45%;">
+                    <span class="tooltip">An Offer You Can't Refuse<br>I: 0.22 | S: 0.45</span>
+                </div>
+
+                <!-- Moat Serval: 0% I, 1% S -> Q4 (Chaff) -->
+                <div class="point" style="left: 2%; bottom: 2%;">
+                    <span class="tooltip">Moat Serval<br>I: 0.00 | S: 0.01</span>
+                </div>
+            </div>
+
+            <h2 class="mono" style="margin-top: 3rem; color: #FFFFFF;">4. Análisis Automatizado de Muestra</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Carta</th>
+                        <th>$I(c)$ (Global)</th>
+                        <th>$p_{\max}$ (Techo)</th>
+                        <th>Categoría</th>
+                        <th>Diagnóstico</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="muy-buena">
+                        <td>Sol Ring</td>
+                        <td>0.84</td>
+                        <td>0.98</td>
+                        <td>STAPLE</td>
+                        <td>Indispensable. Máxima prioridad.</td>
+                    </tr>
+                    <tr class="muy-buena">
+                        <td>Cyclonic Rift</td>
+                        <td>0.35</td>
+                        <td>0.65</td>
+                        <td>STAPLE</td>
+                        <td>Pilar del color azul en el formato.</td>
+                    </tr>
+                    <tr class="buena">
+                        <td>Shadowborn Apostle</td>
+                        <td>0.01</td>
+                        <td>0.92</td>
+                        <td>NICHO</td>
+                        <td>Baja presencia global, vital en su arquetipo.</td>
+                    </tr>
+                    <tr class="buena">
+                        <td>An Offer You Can't Refuse</td>
+                        <td>0.22</td>
+                        <td>0.45</td>
+                        <td>SOLIDA</td>
+                        <td>Interacción eficiente y moderna.</td>
+                    </tr>
+                    <tr>
+                        <td>Cultivate</td>
+                        <td>0.45</td>
+                        <td>0.40</td>
+                        <td>GENÉRICA</td>
+                        <td>Alta adopción, pero reemplazable.</td>
+                    </tr>
+                    <tr class="mala">
+                        <td>Moat Serval</td>
+                        <td>0.00</td>
+                        <td>0.01</td>
+                        <td>CHAFF</td>
+                        <td>Sin impacto estadístico. Descartar.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 class="mono" style="margin-top: 3rem; color: #FFFFFF;">5. Guía de Implementación</h2>
+            <p>El pipeline de <strong>pyEDHREC 2.0</strong> está estructurado en cuatro fases secuenciales, ejecutadas
+                mediante scripts de Python dedicados:</p>
+
+            <ul class="pipeline-list">
+                <li class="pipeline-item">
+                    <span class="pipeline-title">Paso 1: Construcción (<code>build_inventory.py</code>)</span>
+                    Ingesta de datos brutos. El script procesa un archivo <code>.zip</code> conteniendo múltiples
+                    archivos <code>.txt</code> (listas de cartas exportadas por el usuario). Normaliza nombres,
+                    consolida cantidades y genera el <code>inventory.csv</code> maestro, que servirá como fuente de
+                    verdad para todo el sistema.
+                </li>
+                <li class="pipeline-item">
+                    <span class="pipeline-title">Paso 2: Análisis de Oportunidades
+                        (<code>find_best_commanders.py</code>)</span>
+                    El núcleo analítico. Cruza el inventario contra la base de datos de EDHREC para encontrar
+                    comandantes donde el usuario ya posea una masa crítica de cartas (umbral ≥ 20 inclusiones). Prioriza
+                    resultados basándose en la coincidencia con el <em>Average Deck</em> y las métricas de alta
+                    sinergia. Genera un reporte en Excel.
+                </li>
+                <li class="pipeline-item">
+                    <span class="pipeline-title">Paso 3: Depuración de Colección
+                        (<code>compute_bad_cards.py</code>)</span>
+                    Filtro de calidad. Escanea el inventario en busca de "Bulk": cartas que no aparecen en ningún mazo
+                    relevante del metajuego actual ($I(c) \approx 0$ y $p_{\max} \approx 0$). Esto permite a los
+                    jugadores limpiar físicamente sus carpetas de cartas obsoletas.
+                </li>
+                <li class="pipeline-item">
+                    <span class="pipeline-title">Paso 4: Validación Externa
+                        (<code>compare_deck_to_inventory.py</code>)</span>
+                    Herramienta de auditoría. Permite comparar cualquier lista de mazo externa (URL o texto) contra el
+                    <code>inventory.csv</code> procesado, reportando instantáneamente qué cartas faltan y estimando el
+                    costo de completar dicho mazo.
+                </li>
+            </ul>
+
+            <h2 class="mono" style="margin-top: 3rem; color: #FFFFFF;">6. Análisis de Limitaciones Actuales</h2>
+            <p>A pesar de las mejoras, el sistema enfrenta desafíos inherentes a la naturaleza de los datos públicos:
+            </p>
+
+            <div class="dashboard-card"
+                style="border-left: 3px solid var(--accent-muted); padding: 1rem; margin-bottom: 1.5rem;">
+                <h3 class="mono" style="margin-top:0; color:var(--accent-cyan); font-size:1rem;">>> LATENCIA Y RATE
+                    LIMITING</h3>
+                <p style="font-size: 0.9rem; margin-bottom:0;">
+                    Para evitar bloqueos de IP por parte de EDHREC (quienes carecen de API pública), implementamos
+                    <em>delays</em> forzados entre peticiones. Esto garantiza estabilidad pero compromete la velocidad:
+                    analizar un inventario masivo puede tomar varios minutos. Es un compromiso necesario entre
+                    <strong>robustez</strong> y <strong>rendimiento</strong>.
+                </p>
+            </div>
+
+            <div class="dashboard-card"
+                style="border-left: 3px solid var(--accent-muted); padding: 1rem; margin-bottom: 1.5rem;">
+                <h3 class="mono" style="margin-top:0; color:var(--accent-cyan); font-size:1rem;">>> EL SESGO DEL PRECON
+                </h3>
+                <p style="font-size: 0.9rem; margin-bottom:0;">
+                    Muchas cartas muestran estadísticas infladas artificialmente. Si un mazo preconstruido (Precon)
+                    incluye una carta mediocre, miles de usuarios suben esa lista sin modificarla, generando "falsos
+                    positivos" de sinergia. El sistema actual marca estas cartas, pero aún requiere criterio humano para
+                    filtrarlas totalmente.
+                </p>
+            </div>
+
+            <div class="dashboard-card" style="border-left: 3px solid var(--accent-muted); padding: 1rem;">
+                <h3 class="mono" style="margin-top:0; color:var(--accent-cyan); font-size:1rem;">>> RUIDO EN MUESTRAS
+                    PEQUEÑAS</h3>
+                <p style="font-size: 0.9rem; margin-bottom:0;">
+                    Comandantes con Rank > 3000 (ej. <em>Raksha Golden Cub</em>) suelen tener menos de 80 mazos
+                    registrados. Con n < 80, la varianza estadística es extrema, lo que puede disparar el $p_{\max}$
+                        erróneamente. Un mazo "meme" en una muestra pequeña puede sesgar todo el análisis de un
+                        comandante impopular. </p>
+            </div>
+
+            <h2 class="mono" style="margin-top: 3rem; color: #FFFFFF;">7. Hoja de Ruta (Roadmap)</h2>
+            <p>El desarrollo futuro de pyEDHREC 2.0 se centrará en la calidad del dato y la especialización competitiva:
+            </p>
+            <ul style="list-style: none; padding-left: 1rem; border-left: 2px solid var(--border-color);">
+                <li style="margin-bottom: 1rem;">
+                    <strong style="color: var(--accent-cyan);">[INTEGRACIÓN cEDH]</strong> <span style="color: #888;">//
+                        Q3 2025</span><br>
+                    Conexión con <a href="https://edhtop16.com" target="_blank"
+                        style="text-decoration: underline; color: var(--text-main);">edhtop16.com</a> para ingerir datos
+                    de torneos reales. Esto permitirá separar métricas "Casual" de "Competitivo", refinando la
+                    evaluación de eficiencia.
+                </li>
+                <li>
+                    <strong style="color: var(--accent-cyan);">[FILTROS ANTI-PRECON]</strong> <span
+                        style="color: #888;">// Q4 2025</span><br>
+                    Desarrollo de algoritmos de detección de anomalías para identificar y penalizar automáticamente
+                    cartas que solo ven juego en listas sin modificar (Upgrade Rate < 10%). </li>
+            </ul>
+
+            <h2 class="mono" style="margin-top: 3rem; color: #FFFFFF;">Conclusión</h2>
+            <p>
+                <strong>pyEDHREC 2.0</strong> no busca reinventar la rueda del metajuego, sino asegurar que las ruedas
+                que tenemos en nuestro inventario giren en los vehículos correctos. Al transformar una colección
+                estática en un conjunto dinámico de oportunidades optimizadas, permitimos al jugador centrarse menos en
+                la gestión de recursos y más en la estrategia de juego.
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p class="mono">EOF | © 2025 Ayrton Porto</p>
+    </footer>
+
+</body>
+
+</html>
