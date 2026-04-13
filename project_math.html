@@ -2,107 +2,139 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Math & Lean 4 | Ayrton Porto</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="main.css">
-    <link rel="icon" type="image/png" href="assets/ap_logo.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Math &amp; Lean 4 | Ayrton Porto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+  <link rel="icon" type="image/png" href="assets/ap_logo.png">
 </head>
 
 <body>
 
-    <header>
-        <div class="container header-content">
-            <a href="index.html" class="logo"><img src="assets/ap_logo.png" alt="AP.log" class="logo-img"></a>
-            <nav>
-                <a href="profile.html">/profile</a>
-                <div class="dropdown">
-                    <button class="dropbtn">/projects ▾</button>
-                    <div class="dropdown-content">
-                        <a href="project_avid.html">AVID Journal</a>
-                        <a href="project_mtg.html">MTG Data Analytics</a>
-                        <a href="project_math.html">Math & Lean 4</a>
-                    </div>
-                </div>
-                <a href="contact.html">/contact</a>
-            </nav>
+  <header>
+    <div class="container header-content">
+      <a href="index.html" class="logo"><img src="assets/ap_logo.png" alt="AP.log" class="logo-img"></a>
+      <nav>
+        <a href="profile.html">/profile</a>
+        <div class="dropdown">
+          <button class="dropbtn">/projects ▾</button>
+          <div class="dropdown-content">
+            <a href="project_avid.html">AVID Journal</a>
+            <a href="project_mtg.html">MTG Data Analytics</a>
+            <a href="project_math.html">Math &amp; Lean 4</a>
+          </div>
         </div>
-    </header>
+        <a href="contact.html">/contact</a>
+      </nav>
+    </div>
+  </header>
 
-    <main class="container">
-        <section id="theorems">
-            <h2 class="mono">> ./projects --select "Lean 4"</h2>
-            <p class="lead" style="color:#CCCCCC;">Algebraic Logic & Topology</p>
+  <main class="container">
+    <section id="theorems">
+      <h2 class="mono">&gt; ./projects --select "Lean 4"</h2>
+      <p class="lead" style="color:#CCCCCC;">Algebraic Logic &amp; Topology</p>
 
-            <div class="blog-post" style="border-left: 1px dashed #FFFFFF; margin-top: 2rem;">
-                <h3 class="post-title">B.S. Thesis: Formalization</h3>
-                <p>
-                    This project involves the formal verification of my <strong>Undergraduate Thesis
-                    </strong> in
-                    Mathematics, titled <em>"Dualities for bounded distributive lattices with normal operators"</em>.
-                    The goal is to fully formalize
-                    the
-                    construction of Priestley Spaces and their duality with Distributive Lattices using the <strong>Lean
-                        4</strong> theorem prover.
-                </p>
-            </div>
-        </section>
+      <div class="blog-post" style="border-left: 1px dashed #FFFFFF; margin-top: 2rem;">
+        <h3 class="post-title">B.S. Thesis: Formalization</h3>
+        <p>
+          This project involves the formal verification of my <strong>Undergraduate Thesis
+          </strong> in
+          Mathematics, titled <em>"Dualities for bounded distributive lattices with normal operators"</em>.
+          The goal is to fully formalize
+          the
+          construction of Priestley Spaces and their duality with Distributive Lattices using the <strong>Lean
+            4</strong> theorem prover.
+        </p>
+      </div>
+    </section>
 
-        <section>
-            <h2 class="mono">> ./theorems --list-verified</h2>
-            <ul class="pipeline-list" style="border-left-style: dashed; border-left-color: #CCCCCC;">
-                <li class="pipeline-item">
-                    <span class="pipeline-title" style="color:#CCCCCC;">Priestley Duality</span>
-                    Formal construction of the category of Priestley Spaces and its equivalence to Distributive
-                    Lattices.
-                </li>
-                <li class="pipeline-item">
-                    <span class="pipeline-title" style="color:#CCCCCC;">Canonical Extensions</span>
-                    Proof of existence of canonical extensions for bounded distributive lattices with monotone
-                    operators.
-                </li>
-            </ul>
-            <p style="margin-top: 1.5rem; color: #888;">
-                This work is part of a larger effort to digitize 20th-century order theory results, making them
-                accessible to AI-driven proof search algorithms.
-            </p>
-        </section>
+    <section>
+      <h2 class="mono">&gt; ./theorems --list-verified</h2>
+      <ul class="pipeline-list" style="border-left-style: dashed; border-left-color: #CCCCCC;">
+        <li class="pipeline-item">
+          <span class="pipeline-title" style="color:#CCCCCC;">Priestley Duality</span>
+          Formal construction of the category of Priestley Spaces and its equivalence to Distributive
+          Lattices.
+        </li>
+        <li class="pipeline-item">
+          <span class="pipeline-title" style="color:#CCCCCC;">Canonical Extensions</span>
+          Proof of existence of canonical extensions for bounded distributive lattices with monotone
+          operators.
+        </li>
+      </ul>
+      <p style="margin-top: 1.5rem; color: #888;">
+        This work is part of a larger effort to digitize 20th-century order theory results, making them
+        accessible to AI-driven proof search algorithms.
+      </p>
+    </section>
 
-        <section id="thesis-pdf">
-            <h2 class="mono">> ./thesis --display</h2>
-            <div class="pdf-container">
-                <object data="assets/thesis_ayrton_porto.pdf" type="application/pdf" width="100%" height="800px">
-                    <p style="text-align: center; padding: 2rem;">
-                        <span class="mono">Unable to display PDF file.</span><br><br>
-                        <a href="assets/thesis_ayrton_porto.pdf" class="project-btn"
-                            style="border-color:#CCCCCC; color:#CCCCCC;">
-                            [DOWNLOAD THESIS.PDF]
-                        </a>
-                    </p>
-                </object>
-            </div>
-        </section>
+    <!-- ======== NUEVA SECCIÓN: ABSTRACT ======== -->
+    <section id="thesis-abstract">
+      <h2 class="mono">&gt; ./thesis --abstract</h2>
+      <div class="blog-post" style="border-left: 1px dashed #FFFFFF; margin-top: 2rem;">
+        <p>
+          This thesis develops a representation theory for bounded distributive lattices
+          equipped with normal unary operators. Two complementary approaches are pursued.
+        </p>
+        <p>
+          The first establishes a Priestley-type duality for these structures, generalizing
+          classical Priestley duality. For each pair of operator types <em>(i, j)</em> —
+          encoding whether the operator preserves or reverses joins and meets — we construct
+          dual categories of topological-relational spaces and prove an equivalence of
+          categories between the algebraic and topological settings. A symmetry phenomenon
+          between dual operator types is identified and formalized.
+        </p>
+        <p>
+          The second approach studies the canonical extension of bounded distributive
+          lattices with normal unary operators, characterizing the behavior of operators
+          on open and closed elements and deriving a relational representation for each
+          operator type.
+        </p>
+        <p>
+          The two approaches are shown to be consistent: the relational representations
+          obtained via duality and via canonical extension coincide. As an application,
+          Ockham algebras are recovered as subcategories of the framework, and equational
+          properties of operators — such as preservation of unions, idempotence, and
+          commutativity — are shown to correspond to relational properties of the dual
+          spaces, namely closure, reflexivity, and transitivity.
+        </p>
+      </div>
+    </section>
+    <!-- ======== FIN NUEVA SECCIÓN ======== -->
 
+    <section id="thesis-pdf">
+      <h2 class="mono">&gt; ./thesis --display</h2>
+      <div class="pdf-container">
+        <object data="assets/thesis_ayrton_porto.pdf" type="application/pdf" width="100%" height="800px">
+          <p style="text-align: center; padding: 2rem;">
+            <span class="mono">Unable to display PDF file.</span><br><br>
+            <a href="assets/thesis_ayrton_porto.pdf" class="project-btn"
+              style="border-color:#CCCCCC; color:#CCCCCC;">
+              [DOWNLOAD THESIS.PDF]
+            </a>
+          </p>
+        </object>
+      </div>
+    </section>
 
+    <section>
+      <h2 class="mono">&gt; ./links --external</h2>
+      <a href="https://github.com/ayrtonporto/lean-logic" target="_blank" class="project-btn"
+        style="border-color:#CCCCCC; color:#CCCCCC;">View Repository -&gt;</a>
+      <a href="https://github.com/ayrtonporto/math-papers" target="_blank" class="project-btn"
+        style="border-color:#CCCCCC; color:#CCCCCC; margin-left:1rem;">LaTeX Preprints -&gt;</a>
+    </section>
 
-        <section>
-            <h2 class="mono">> ./links --external</h2>
-            <a href="https://github.com/ayrtonporto/lean-logic" target="_blank" class="project-btn"
-                style="border-color:#CCCCCC; color:#CCCCCC;">View Repository -></a>
-            <a href="https://github.com/ayrtonporto/math-papers" target="_blank" class="project-btn"
-                style="border-color:#CCCCCC; color:#CCCCCC; margin-left:1rem;">LaTeX Preprints -></a>
-        </section>
+  </main>
 
-    </main>
-
-    <footer>
-        <p class="mono">EOF | © 2025 Ayrton Porto</p>
-    </footer>
+  <footer>
+    <p class="mono">EOF | © 2025 Ayrton Porto</p>
+  </footer>
 
 </body>
 
