@@ -35,20 +35,19 @@
   </header>
 
   <main class="container">
+
     <section id="theorems">
       <h2 class="mono">&gt; ./projects --select "Lean 4"</h2>
       <p class="lead" style="color:#CCCCCC;">Algebraic Logic &amp; Topology</p>
 
       <div class="blog-post" style="border-left: 1px dashed #FFFFFF; margin-top: 2rem;">
-        <h3 class="post-title">B.S. Thesis: Formalization</h3>
+        <h3 class="post-title">Licenciatura Thesis: Formalization</h3>
         <p>
-          This project involves the formal verification of my <strong>Undergraduate Thesis
-          </strong> in
-          Mathematics, titled <em>"Dualities for bounded distributive lattices with normal operators"</em>.
-          The goal is to fully formalize
-          the
-          construction of Priestley Spaces and their duality with Distributive Lattices using the <strong>Lean
-            4</strong> theorem prover.
+          This project involves the formal verification of my <strong>Licenciatura Thesis</strong> in
+          Mathematics (equivalent to a combined B.S. + M.S.), titled
+          <em>"Dualities for bounded distributive lattices with normal operators"</em>.
+          The goal is to fully formalize the construction of Priestley Spaces and their duality
+          with Distributive Lattices using the <strong>Lean 4</strong> theorem prover.
         </p>
       </div>
     </section>
@@ -73,10 +72,98 @@
       </p>
     </section>
 
-    <!-- ======== NUEVA SECCIÓN: ABSTRACT ======== -->
     <section id="thesis-abstract">
       <h2 class="mono">&gt; ./thesis --abstract</h2>
-      <div class="blog-post" style="border-left: 1px dashed #FFFFFF; margin-top: 2rem;">
+
+      <!-- Inline SVG: Priestley Duality Diagram -->
+      <svg viewBox="0 0 580 230" xmlns="http://www.w3.org/2000/svg"
+        style="width:100%;max-width:580px;display:block;margin:1.5rem 0 2rem 0;">
+        <defs>
+          <marker id="ah-grey" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+            <path d="M0,0 L0,7 L7,3.5 z" fill="#CCCCCC"/>
+          </marker>
+          <marker id="ah-grey-rev" markerWidth="7" markerHeight="7" refX="2" refY="3.5"
+            orient="auto-start-reverse">
+            <path d="M0,0 L0,7 L7,3.5 z" fill="#CCCCCC"/>
+          </marker>
+          <marker id="ah-cyan" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+            <path d="M0,0 L0,7 L7,3.5 z" fill="#66FCF1"/>
+          </marker>
+        </defs>
+
+        <!-- Caption -->
+        <text x="290" y="20" font-family="'JetBrains Mono', monospace" font-size="10" fill="#555"
+          text-anchor="middle">Priestley-type Duality for Distributive Lattices with Normal Operators</text>
+
+        <!-- ===== LEFT: DISTRIBUTIVE LATTICE ===== -->
+        <!-- Hasse lines -->
+        <line x1="127" y1="166" x2="93"  y2="120" stroke="#CCCCCC" stroke-width="1.5"/>
+        <line x1="133" y1="166" x2="167" y2="120" stroke="#CCCCCC" stroke-width="1.5"/>
+        <line x1="93"  y1="102" x2="127" y2="56"  stroke="#CCCCCC" stroke-width="1.5"/>
+        <line x1="167" y1="102" x2="133" y2="56"  stroke="#CCCCCC" stroke-width="1.5"/>
+
+        <!-- Operator □: dashed cyan arc from node a down to node 0 -->
+        <path d="M 79,112 Q 44,156 122,174" fill="none" stroke="#66FCF1" stroke-width="1.5"
+          stroke-dasharray="5,3" marker-end="url(#ah-cyan)"/>
+        <text x="38" y="148" font-family="'JetBrains Mono', monospace" font-size="13" fill="#66FCF1"
+          text-anchor="middle">□</text>
+
+        <!-- Nodes -->
+        <circle cx="130" cy="45"  r="14" fill="#0B0C10" stroke="#FFFFFF" stroke-width="1.5"/>
+        <circle cx="90"  cy="111" r="14" fill="#0B0C10" stroke="#CCCCCC" stroke-width="1.5"/>
+        <circle cx="170" cy="111" r="14" fill="#0B0C10" stroke="#CCCCCC" stroke-width="1.5"/>
+        <circle cx="130" cy="175" r="14" fill="#0B0C10" stroke="#FFFFFF" stroke-width="1.5"/>
+
+        <!-- Node labels -->
+        <text x="130" y="45"  font-family="'JetBrains Mono', monospace" font-size="13" fill="white"    text-anchor="middle" dominant-baseline="middle">1</text>
+        <text x="90"  y="111" font-family="'JetBrains Mono', monospace" font-size="13" fill="#CCCCCC"  text-anchor="middle" dominant-baseline="middle">a</text>
+        <text x="170" y="111" font-family="'JetBrains Mono', monospace" font-size="13" fill="#CCCCCC"  text-anchor="middle" dominant-baseline="middle">b</text>
+        <text x="130" y="175" font-family="'JetBrains Mono', monospace" font-size="13" fill="white"    text-anchor="middle" dominant-baseline="middle">0</text>
+
+        <!-- Lattice label -->
+        <text x="130" y="212" font-family="'JetBrains Mono', monospace" font-size="10" fill="#666"
+          text-anchor="middle">(L, ∨, ∧, □)</text>
+
+        <!-- ===== CENTER: DUALITY ARROW ===== -->
+        <line x1="232" y1="110" x2="348" y2="110" stroke="#CCCCCC" stroke-width="1.5"
+          marker-start="url(#ah-grey-rev)" marker-end="url(#ah-grey)"/>
+        <text x="290" y="100" font-family="'JetBrains Mono', monospace" font-size="15" fill="#CCCCCC"
+          text-anchor="middle">≃</text>
+        <text x="290" y="128" font-family="'JetBrains Mono', monospace" font-size="9" fill="#555"
+          text-anchor="middle">duality</text>
+
+        <!-- ===== RIGHT: PRIESTLEY SPACE ===== -->
+        <!-- Topology hint: dashed rect -->
+        <rect x="375" y="28" width="172" height="168" rx="8" fill="none" stroke="#2e3d4d"
+          stroke-width="1.5" stroke-dasharray="6,4"/>
+        <text x="386" y="45" font-family="'JetBrains Mono', monospace" font-size="10" fill="#2e3d4d">τ</text>
+
+        <!-- Order ≤: solid arrow from x₁ up to x₂ -->
+        <line x1="427" y1="157" x2="483" y2="80" stroke="#CCCCCC" stroke-width="1.5"
+          marker-end="url(#ah-grey)"/>
+        <text x="447" y="124" font-family="'JetBrains Mono', monospace" font-size="10" fill="#888">≤</text>
+
+        <!-- Accessibility R: dashed cyan arc -->
+        <path d="M 503,78 Q 542,118 508,162" fill="none" stroke="#66FCF1" stroke-width="1.5"
+          stroke-dasharray="5,3" marker-end="url(#ah-cyan)"/>
+        <text x="543" y="124" font-family="'JetBrains Mono', monospace" font-size="13" fill="#66FCF1">R</text>
+
+        <!-- Points -->
+        <circle cx="420" cy="165" r="14" fill="#0B0C10" stroke="#CCCCCC" stroke-width="1.5"/>
+        <circle cx="490" cy="70"  r="14" fill="#0B0C10" stroke="#CCCCCC" stroke-width="1.5"/>
+
+        <!-- Point labels -->
+        <text x="420" y="165" font-family="'JetBrains Mono', monospace" font-size="11" fill="#CCCCCC"
+          text-anchor="middle" dominant-baseline="middle">x₁</text>
+        <text x="490" y="70"  font-family="'JetBrains Mono', monospace" font-size="11" fill="#CCCCCC"
+          text-anchor="middle" dominant-baseline="middle">x₂</text>
+
+        <!-- Space label -->
+        <text x="461" y="212" font-family="'JetBrains Mono', monospace" font-size="10" fill="#666"
+          text-anchor="middle">(X, τ, ≤, R)</text>
+      </svg>
+
+      <div class="blog-post" style="border-left: 1px dashed #FFFFFF; margin-top: 0;">
         <p>
           This thesis develops a representation theory for bounded distributive lattices
           equipped with normal unary operators. Two complementary approaches are pursued.
@@ -105,7 +192,6 @@
         </p>
       </div>
     </section>
-    <!-- ======== FIN NUEVA SECCIÓN ======== -->
 
     <section id="thesis-pdf">
       <h2 class="mono">&gt; ./thesis --display</h2>
@@ -133,7 +219,7 @@
   </main>
 
   <footer>
-    <p class="mono">EOF | © 2025 Ayrton Porto</p>
+    <p class="mono">EOF | &copy; 2026 Ayrton Porto</p>
   </footer>
 
 </body>
