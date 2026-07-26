@@ -7,14 +7,9 @@
 \usepackage{xcolor}
 \usepackage{titlesec}
 
-% ── Colors ──
 \definecolor{accent}{HTML}{1F2833}
-\definecolor{accent2}{HTML}{66FCF1}
-
-\hypersetup{
-  colorlinks=true, linkcolor=accent, urlcolor=accent,
-  pdfauthor={Ayrton Porto}, pdftitle={Industry Resume — Ayrton Porto}
-}
+\hypersetup{colorlinks=true, linkcolor=accent, urlcolor=accent,
+  pdfauthor={Ayrton Porto}, pdftitle={Industry Resume — Ayrton Porto}}
 
 \setlist{nosep,leftmargin=*,itemsep=0.2ex,parsep=0.2ex}
 \setlist[itemize]{label=---,leftmargin=1.2em}
@@ -59,8 +54,8 @@ Seeking roles in AI engineering, research engineering, or formal methods.
 \section{Technical Skills}
 
 \begin{tabular}{@{}p{0.22\textwidth}p{0.73\textwidth}@{}}
-  \textbf{Languages}    & Python, SQL, LaTeX \\
-  \textbf{ML / AI}      & PyTorch, LLM pipelines (Claude API, multi-agent), prompt engineering \\
+  \textbf{Languages}    & Python, C++, SQL, LaTeX \\
+  \textbf{ML / AI}      & LLM pipelines (Claude API, multi-agent systems), PyTorch, prompt engineering \\
   \textbf{Web}          & FastAPI, Streamlit, SSE streaming, REST APIs \\
   \textbf{Data}         & Pandas, web scraping, EDHREC API integration \\
   \textbf{Formal}       & Lean 4, Coq / Rocq, TLA+, Dafny \\
@@ -70,41 +65,41 @@ Seeking roles in AI engineering, research engineering, or formal methods.
 % ═══ SELECTED PROJECTS ═══
 \section{Selected Projects}
 
-\textbf{AViD Journal} — LLM Autoformalization Pipeline
+\textbf{AViD Journal} — LLM Autoformalization Pipeline \hfill 2025--Present
 
 \begin{itemize}
-  \item Built end-to-end system formalizing mathematical papers in Lean 4 via the Claude API.
-  \item Designed a novelty-detection engine checking formalized theorems against Mathlib.
+  \item End-to-end system formalizing mathematical papers in Lean 4 via the Claude API.
+  \item Novelty-detection engine checking formalized theorems against Mathlib.
   \item Modular Python backend with FastAPI + SSE streaming for real-time pipeline progress.
   \item \href{https://github.com/ayrtonporto/avid-journal}{github.com/ayrtonporto/avid-journal}
 \end{itemize}
 
 \vspace{0.3em}
-\textbf{ManaProof} — Data-Driven Commander Deck Builder
+\textbf{ManaProof} — Data-Driven Commander Deck Builder \hfill 2024--Present
 
 \begin{itemize}
-  \item Built Python pipeline integrating EDHREC analytics for automated Commander deck construction from card collections.
+  \item Python pipeline integrating EDHREC analytics for automated Commander deck construction.
   \item Automated extraction-list generation and catalog output --- 250+ decks built and sold.
   \item \href{https://github.com/ayrtonporto/manaproof}{github.com/ayrtonporto/manaproof}
 \end{itemize}
 
 \vspace{0.3em}
-\textbf{BabelBench} — Proof-Translation Benchmark (Apart Research)
+\textbf{BabelBench} — Proof-Translation Benchmark (Apart Research) \hfill 2026
 
 \begin{itemize}
-  \item Cross-paradigm benchmark measuring fidelity of LLM translations across formal systems.
-  \item Designed metrics checked by real verifiers (Lean 4, Coq, TLA+, Dafny) and Z3 --- no LLM judges.
+  \item Cross-paradigm benchmark measuring fidelity of LLM proof translations across formal systems.
+  \item Metrics checked by real verifiers (Lean 4, Coq, TLA+, Dafny) and Z3 --- no LLM judges.
 \end{itemize}
 
 % ═══ EXPERIENCE ═══
 \section{Experience}
 
-\textbf{Apart Research} — Fellow Researcher \hfill 2026\\
+\textbf{Apart Research} — Fellow Researcher \hfill 2026 (Jan--Oct)\\
 \textit{Secure Program Synthesis Fellowship · International collaboration}
 
 \begin{itemize}
-  \item Leading fidelity-metrics development for BabelBench, a cross-paradigm proof-translation benchmark.
-  \item Collaborating with mentors and co-researchers on benchmark design and evaluation methodology.
+  \item Leading fidelity-metrics development for BabelBench.
+  \item Collaborating with mentors and co-researchers on benchmark design and evaluation.
 \end{itemize}
 
 \vspace{0.3em}
@@ -112,22 +107,24 @@ Seeking roles in AI engineering, research engineering, or formal methods.
 
 \begin{itemize}
   \item Built and operate a data-driven Magic: The Gathering venture.
-  \item Designed the full pipeline: collection analysis $\rightarrow$ deck optimization $\rightarrow$ extraction $\rightarrow$ sale.
+  \item Designed full pipeline: collection analysis $\rightarrow$ deck optimization $\rightarrow$ extraction $\rightarrow$ sale.
 \end{itemize}
 
 \vspace{0.3em}
-\textbf{Teaching Assistant — UNICEN} \hfill 2023--2025\\
+\textbf{Teaching Assistant — UNICEN} \hfill 2023--Present\\
+\textit{Graduate TA (2026--) · Undergraduate TA (2023--2025)}\\
 Courses: Discrete Mathematics, Linear Algebra, Calculus I.
 
 % ═══ EDUCATION ═══
 \section{Education}
 
 \textbf{UNICEN} — Licenciatura en Ciencias Matemáticas \hfill 2020--2025\\
-GPA: 9.41/10.00. Thesis: Priestley duality for distributive lattices.
+GPA: 9.41/10.00. Five-year degree, equivalent to B.S.\ + M.S.\\
+Thesis: Priestley duality for distributive lattices.
 
 % ═══ AWARDS ═══
 \section{Awards}
 
-Apart Research Fellow (2026) · Beca CIN (2023--2025) · Beca Santander (2022) · OMA
+Apart Research Fellow (2026) · Beca Santander — Academic Merit (2024) · Beca CIN (2023--2025) · IMPA Fellowship · OMA
 
 \end{document}

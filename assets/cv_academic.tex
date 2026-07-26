@@ -7,21 +7,13 @@
 \usepackage{xcolor}
 \usepackage{titlesec}
 
-% ── Colors (matching site palette) ──
 \definecolor{accent}{HTML}{1F2833}
-\definecolor{accent2}{HTML}{66FCF1}
+\hypersetup{colorlinks=true, linkcolor=accent, urlcolor=accent,
+  pdfauthor={Ayrton Porto}, pdftitle={Academic CV — Ayrton Porto}}
 
-% ── Links ──
-\hypersetup{
-  colorlinks=true, linkcolor=accent, urlcolor=accent,
-  pdfauthor={Ayrton Porto}, pdftitle={Academic CV — Ayrton Porto}
-}
-
-% ── Tight lists ──
 \setlist{nosep,leftmargin=*,itemsep=0.3ex,parsep=0.3ex}
 \setlist[itemize]{label=---}
 
-% ── Section formatting ──
 \titleformat{\section}
   {\normalfont\large\bfseries\color{accent}}{}{0em}{}
   [\vspace{-0.7em}\rule{\textwidth}{0.4pt}]
@@ -51,8 +43,8 @@
 % ═══ RESEARCH INTERESTS ═══
 \section{Research Interests}
 
-Autoformalization, interactive theorem proving, large language models for formal mathematics,
-formal verification, proof assistants (Lean 4, Coq/Rocq), computational logic,
+Autoformalization, formal verification, large language models for mathematics,
+proof assistants (Lean 4, Coq/Rocq), mathematical logic, algebraic logic,
 fidelity metrics for machine-generated proofs.
 
 % ═══ EDUCATION ═══
@@ -63,7 +55,7 @@ fidelity metrics for machine-generated proofs.
 Licenciatura en Ciencias Matemáticas \hfill 2020--2025
 
 \begin{itemize}
-  \item GPA: \textbf{9.41/10.00}. Five-year degree, comparable in duration to a combined B.S.\ + M.S.
+  \item GPA: \textbf{9.41/10.00}. Five-year degree, equivalent to a combined B.S.\ + M.S.
   \item Thesis: \textit{Priestley duality for bounded distributive lattices with normal operators}
   \item Advisors: W.\ Zuluaga Botero and A.\ Nagy
 \end{itemize}
@@ -71,25 +63,22 @@ Licenciatura en Ciencias Matemáticas \hfill 2020--2025
 % ═══ RESEARCH EXPERIENCE ═══
 \section{Research Experience}
 
-\textbf{AViD Journal — Automated Verification Pipeline} \hfill 2024--Present\\
+\textbf{AViD Journal — Automated Verification Pipeline} \hfill 2025--Present\\
 \textit{Primary research project · Independent}
 
 \begin{itemize}
-  \item Designed an end-to-end pipeline for LLM-assisted autoformalization of mathematical papers in \textbf{Lean 4}.
-  \item Developed a \textbf{novelty detection} system that checks formalized theorems against Mathlib along three axes: existence (has this been proved before?), non-triviality (does it differ from known results?), and structural proof-distance.
-  \item Core finding: \textit{fidelity $\neq$ compilation} — LLM-generated formalizations can compile and still fail to preserve the logical meaning of the original theorem.
-  \item Integrated \textbf{arXiv} and \textbf{TheoremSearch} for paper ingestion and metadata extraction.
-  \item Built a modular Python pipeline with FastAPI backend, SSE streaming, and Claude API integration.
+  \item Designed an end-to-end pipeline for LLM-assisted autoformalization of mathematical papers in \textbf{Lean 4}, with novelty detection against Mathlib.
+  \item Integrated \textbf{arXiv} and \textbf{TheoremSearch} for paper ingestion; modular Python backend with FastAPI, SSE streaming, and Claude API.
+  \item Presented as a poster at \textit{Escuela de Primavera en Deep Learning} (2025).
 \end{itemize}
 
 \vspace{0.3em}
-\textbf{Apart Research — Secure Program Synthesis Fellowship} \hfill 2026\\
+\textbf{Apart Research — Secure Program Synthesis Fellowship} \hfill 2026 (Jan--Oct)\\
 \textit{Fellow Researcher · International collaboration}
 
 \begin{itemize}
-  \item Developing \textbf{BabelBench}, a cross-paradigm proof-translation benchmark measuring whether LLMs preserve logical meaning when translating theorems across formal systems (type-theoretic: Lean 4, Coq; model-theoretic: TLA+, Dafny).
-  \item Leading the \textbf{fidelity-metrics} component: designing and implementing metrics checked by real proof verifiers and the Z3 solver --- no LLM judges.
-  \item Statement-equivalence metric functional across all four backends; targeting workshop submission (AITP / TACAS'27).
+  \item Developing \textbf{BabelBench}, a cross-paradigm proof-translation benchmark measuring whether LLMs preserve logical meaning when translating theorems across formal systems (Lean 4, Coq, TLA+, Dafny).
+  \item Leading the fidelity-metrics component: metrics checked by real verifiers and Z3 — no LLM judges.
 \end{itemize}
 
 \vspace{0.3em}
@@ -97,21 +86,27 @@ Licenciatura en Ciencias Matemáticas \hfill 2020--2025
 \textit{Undergraduate Research Fellow · UNICEN}
 
 \begin{itemize}
-  \item Conducted research in algebraic logic under the supervision of W.\ Zuluaga Botero.
-  \item Studied duality theory for bounded distributive lattices, culminating in the Licenciatura thesis.
+  \item Research in algebraic logic under W.\ Zuluaga Botero; studied duality theory for bounded distributive lattices.
 \end{itemize}
 
 % ═══ TALKS ═══
 \section{Talks \& Presentations}
 
-\textit{An Introduction to Lean 4} — Taller Lean, Nodo Serrano \hfill 2025\\
-\textit{Rocq in a Nutshell} — Seminar, UNICEN \hfill 2025\\
-\textit{Priestley duality for bounded distributive lattices} — Thesis defense, UNICEN \hfill 2025
+\textit{An Introduction to Lean 4} — Taller Lean, Nodo Serrano \hfill 2026\\
+\textit{AViD Journal: LLM-Assisted Autoformalization} — Escuela de Primavera en Deep Learning (poster) \hfill 2025\\
+\textit{Priestley duality for bounded distributive lattices} — Thesis defense, UNICEN \hfill 2025\\
+\textit{(title)} — Congreso Mar y Sierras, UNICEN \hfill (year)
 
 % ═══ TEACHING ═══
 \section{Teaching Experience}
 
+\textbf{Teaching Assistant — UNICEN} \hfill 2026--Present\\
+\textit{Graduate Teaching Assistant}\\
+Courses: Discrete Mathematics, Linear Algebra, Calculus I.
+
+\vspace{0.3em}
 \textbf{Teaching Assistant — UNICEN} \hfill 2023--2025\\
+\textit{Undergraduate Teaching Assistant}\\
 Courses: Discrete Mathematics, Linear Algebra, Calculus I.
 
 % ═══ AWARDS ═══
@@ -119,9 +114,10 @@ Courses: Discrete Mathematics, Linear Algebra, Calculus I.
 
 \begin{tabular}{@{}p{0.75\textwidth}p{0.20\textwidth}@{}}
   Apart Research — Secure Program Synthesis Fellowship & 2026 \\
+  Beca Santander — Academic Merit Scholarship & 2024 \\
   Beca CIN — Consejo Interuniversitario Nacional & 2023--2025 \\
-  Beca Santander — Santander Universidades & 2022 \\
-  OMA — Olimpíada Matemática Argentina & \\
+  IMPA Fellowship — (details) & (year) \\
+  OMA — Argentine Mathematical Olympiad & \\
 \end{tabular}
 
 % ═══ SKILLS ═══
@@ -129,8 +125,8 @@ Courses: Discrete Mathematics, Linear Algebra, Calculus I.
 
 \begin{tabular}{@{}p{0.22\textwidth}p{0.73\textwidth}@{}}
   \textbf{Proof assistants} & Lean 4, Coq / Rocq \\
-  \textbf{Programming}    & Python, SQL \\
-  \textbf{ML / AI}        & PyTorch, LLM pipelines, prompt engineering, multi-agent systems \\
+  \textbf{Programming}    & Python, C++, SQL \\
+  \textbf{ML / AI}        & LLM pipelines (Claude API, multi-agent), PyTorch, prompt engineering \\
   \textbf{Formal methods} & Theorem proving, formal verification, model checking (TLA+, Dafny) \\
   \textbf{Tools}          & Git, LaTeX, FastAPI, Streamlit, Pandas \\
 \end{tabular}
