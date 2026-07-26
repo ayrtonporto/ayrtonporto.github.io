@@ -1,0 +1,133 @@
+% !TEX program = xelatex
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=0.75in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{titlesec}
+
+% ── Colors ──
+\definecolor{accent}{HTML}{1F2833}
+\definecolor{accent2}{HTML}{66FCF1}
+
+\hypersetup{
+  colorlinks=true, linkcolor=accent, urlcolor=accent,
+  pdfauthor={Ayrton Porto}, pdftitle={Industry Resume — Ayrton Porto}
+}
+
+\setlist{nosep,leftmargin=*,itemsep=0.2ex,parsep=0.2ex}
+\setlist[itemize]{label=---,leftmargin=1.2em}
+
+\titleformat{\section}
+  {\normalfont\large\bfseries\color{accent}}{}{0em}{}
+  [\vspace{-0.7em}\rule{\textwidth}{0.4pt}]
+\titlespacing{\section}{0pt}{1.0em}{0.4em}
+
+\pagestyle{empty}
+\setlength{\parskip}{0.3em}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+% ═══ HEADER ═══
+\begin{center}
+  {\Huge\bfseries Ayrton Porto}\\[0.3em]
+  {\large AI/ML Engineer · Formal Methods · LLM Systems}\\[0.5em]
+  {\small
+    \href{https://ayrtonporto.github.io}{ayrtonporto.github.io}
+    \( \;|\; \)
+    \href{mailto:ayrporto@gmail.com}{ayrporto@gmail.com}
+    \( \;|\; \)
+    \href{https://github.com/ayrtonporto}{github.com/ayrtonporto}
+    \( \;|\; \)
+    \href{https://www.linkedin.com/in/ayrtonporto/}{linkedin.com/in/ayrporto}
+  }
+\end{center}
+
+% ═══ SUMMARY ═══
+\section{Summary}
+
+Mathematician and AI engineer building LLM-powered systems for automated reasoning
+and formal verification. Strong background in mathematical logic, hands-on
+experience with large language models, multi-agent pipelines, and proof
+assistants (Lean 4, Coq). Built production data pipelines, a web application
+with FastAPI + SSE streaming, and a data-driven venture (250+ decks sold).
+Seeking roles in AI engineering, research engineering, or formal methods.
+
+% ═══ TECHNICAL SKILLS ═══
+\section{Technical Skills}
+
+\begin{tabular}{@{}p{0.22\textwidth}p{0.73\textwidth}@{}}
+  \textbf{Languages}    & Python, SQL, LaTeX \\
+  \textbf{ML / AI}      & PyTorch, LLM pipelines (Claude API, multi-agent), prompt engineering \\
+  \textbf{Web}          & FastAPI, Streamlit, SSE streaming, REST APIs \\
+  \textbf{Data}         & Pandas, web scraping, EDHREC API integration \\
+  \textbf{Formal}       & Lean 4, Coq / Rocq, TLA+, Dafny \\
+  \textbf{Tools}        & Git, GitHub Actions, Linux, XeLaTeX \\
+\end{tabular}
+
+% ═══ SELECTED PROJECTS ═══
+\section{Selected Projects}
+
+\textbf{AViD Journal} — LLM Autoformalization Pipeline
+
+\begin{itemize}
+  \item Built end-to-end system formalizing mathematical papers in Lean 4 via the Claude API.
+  \item Designed a novelty-detection engine checking formalized theorems against Mathlib.
+  \item Modular Python backend with FastAPI + SSE streaming for real-time pipeline progress.
+  \item \href{https://github.com/ayrtonporto/avid-journal}{github.com/ayrtonporto/avid-journal}
+\end{itemize}
+
+\vspace{0.3em}
+\textbf{ManaProof} — Data-Driven Commander Deck Builder
+
+\begin{itemize}
+  \item Built Python pipeline integrating EDHREC analytics for automated Commander deck construction from card collections.
+  \item Automated extraction-list generation and catalog output --- 250+ decks built and sold.
+  \item \href{https://github.com/ayrtonporto/manaproof}{github.com/ayrtonporto/manaproof}
+\end{itemize}
+
+\vspace{0.3em}
+\textbf{BabelBench} — Proof-Translation Benchmark (Apart Research)
+
+\begin{itemize}
+  \item Cross-paradigm benchmark measuring fidelity of LLM translations across formal systems.
+  \item Designed metrics checked by real verifiers (Lean 4, Coq, TLA+, Dafny) and Z3 --- no LLM judges.
+\end{itemize}
+
+% ═══ EXPERIENCE ═══
+\section{Experience}
+
+\textbf{Apart Research} — Fellow Researcher \hfill 2026\\
+\textit{Secure Program Synthesis Fellowship · International collaboration}
+
+\begin{itemize}
+  \item Leading fidelity-metrics development for BabelBench, a cross-paradigm proof-translation benchmark.
+  \item Collaborating with mentors and co-researchers on benchmark design and evaluation methodology.
+\end{itemize}
+
+\vspace{0.3em}
+\textbf{ManaProof} — Founder \hfill 2024--Present
+
+\begin{itemize}
+  \item Built and operate a data-driven Magic: The Gathering venture.
+  \item Designed the full pipeline: collection analysis $\rightarrow$ deck optimization $\rightarrow$ extraction $\rightarrow$ sale.
+\end{itemize}
+
+\vspace{0.3em}
+\textbf{Teaching Assistant — UNICEN} \hfill 2023--2025\\
+Courses: Discrete Mathematics, Linear Algebra, Calculus I.
+
+% ═══ EDUCATION ═══
+\section{Education}
+
+\textbf{UNICEN} — Licenciatura en Ciencias Matemáticas \hfill 2020--2025\\
+GPA: 9.41/10.00. Thesis: Priestley duality for distributive lattices.
+
+% ═══ AWARDS ═══
+\section{Awards}
+
+Apart Research Fellow (2026) · Beca CIN (2023--2025) · Beca Santander (2022) · OMA
+
+\end{document}
