@@ -8,7 +8,6 @@
 \usepackage{titlesec}
 \usepackage{graphicx}
 
-% ── Icons ──
 \graphicspath{{icons/}}
 \newcommand{\ic}[1]{\includegraphics[height=0.85em]{#1.png}}
 
@@ -33,7 +32,7 @@
 % ═══ HEADER ═══
 \begin{center}
   {\Huge\bfseries Ayrton Porto}\\[0.3em]
-  {\large AI/ML Engineer · Formal Methods · LLM Systems}\\[0.5em]
+  {\large AI Engineer · Formal Methods · LLM Systems}\\[0.5em]
   {\small
     \ic{email} \href{mailto:ayrporto@gmail.com}{ayrporto@gmail.com}
     \hspace{1.2em}
@@ -51,19 +50,18 @@
 Mathematician and AI engineer building LLM-powered systems for automated reasoning
 and formal verification. Strong background in mathematical logic, hands-on
 experience with large language models, multi-agent pipelines, and proof
-assistants (Lean 4, Coq). Built production data pipelines, a web application
-with FastAPI + SSE streaming, and a data-driven venture (250+ decks sold).
-Seeking roles in AI engineering, research engineering, or formal methods.
+assistants (Lean 4, Coq). Built production data pipelines and a web application
+with FastAPI. Seeking roles in AI engineering, research engineering, or formal methods.
 
 % ═══ TECHNICAL SKILLS ═══
 \section{Technical Skills}
 
 \begin{tabular}{@{}p{0.22\textwidth}p{0.73\textwidth}@{}}
   \textbf{Languages}    & Python, C++, SQL, LaTeX \\
-  \textbf{ML / AI}      & LLM pipelines (Claude API, multi-agent systems), PyTorch, prompt engineering \\
+  \textbf{ML / AI}      & LLM systems, multi-agent systems, API integration, PyTorch \\
   \textbf{Web}          & FastAPI, Streamlit, SSE streaming, REST APIs \\
-  \textbf{Data}         & Pandas, web scraping, EDHREC API integration \\
-  \textbf{Formal}       & Lean 4, Coq / Rocq, TLA+, Dafny \\
+  \textbf{Data}         & Pandas, web scraping \\
+  \textbf{Formal}       & Lean 4, Coq / Rocq, TLA+, Dafny, Z3 \\
   \textbf{Tools}        & Git, GitHub Actions, Linux, XeLaTeX \\
 \end{tabular}
 
@@ -80,7 +78,7 @@ Spanish (native) · English (professional proficiency)
 
 \begin{itemize}
   \item End-to-end system formalizing mathematical papers in Lean 4 via the Claude API.
-  \item Novelty-detection engine checking formalized theorems against Mathlib.
+  \item Designed a novelty-detection pipeline that evaluates formalized theorems against Mathlib along three dimensions: existence, non-triviality, and structural proof-distance.
   \item Modular Python backend with FastAPI + SSE streaming for real-time pipeline progress.
   \item \href{https://github.com/ayrtonporto/avid-journal}{github.com/ayrtonporto/avid-journal}
 \end{itemize}
@@ -89,17 +87,9 @@ Spanish (native) · English (professional proficiency)
 \textbf{ManaProof} --- Data-Driven Commander Deck Builder \hfill 2024--Present
 
 \begin{itemize}
-  \item Python pipeline integrating EDHREC analytics for automated Commander deck construction.
-  \item Automated extraction-list generation and catalog output --- 250+ decks built and sold.
+  \item Python pipeline integrating EDHREC analytics for automated Magic: The Gathering Commander deck construction.
+  \item Built and sold 250+ automated Commander decklists.
   \item \href{https://github.com/ayrtonporto/manaproof}{github.com/ayrtonporto/manaproof}
-\end{itemize}
-
-\vspace{0.3em}
-\textbf{BabelBench} --- Proof-Translation Benchmark (Apart Research) \hfill 2026
-
-\begin{itemize}
-  \item Cross-paradigm benchmark measuring fidelity of LLM proof translations across formal systems.
-  \item Metrics checked by real verifiers (Lean 4, Coq, TLA+, Dafny) and Z3 --- no LLM judges.
 \end{itemize}
 
 % ═══ EXPERIENCE ═══
@@ -109,15 +99,16 @@ Spanish (native) · English (professional proficiency)
 \textit{Secure Program Synthesis Fellowship · International collaboration}
 
 \begin{itemize}
-  \item Leading fidelity-metrics development for BabelBench.
-  \item Collaborating with mentors and co-researchers on benchmark design and evaluation.
+  \item Developing \textbf{BabelBench}, a cross-paradigm proof-translation benchmark measuring whether LLMs preserve logical meaning when translating theorems across formal systems (Lean 4, Coq, TLA+, Dafny).
+  \item Designed fidelity metrics checked by real proof verifiers and the Z3 solver --- no LLM-based evaluation.
+  \item Collaborating with mentors and co-researchers on benchmark design and evaluation methodology.
 \end{itemize}
 
 \vspace{0.3em}
-\textbf{ManaProof} --- Founder \hfill 2024--Present
+\textbf{ManaProof} --- Founder \& AI Engineer \hfill 2024--Present
 
 \begin{itemize}
-  \item Built and operate a data-driven Magic: The Gathering venture.
+  \item Founded and operate a data-driven Magic: The Gathering deck-building business.
   \item Designed full pipeline: collection analysis $\rightarrow$ deck optimization $\rightarrow$ extraction $\rightarrow$ sale.
 \end{itemize}
 
