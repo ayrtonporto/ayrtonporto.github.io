@@ -7,13 +7,10 @@
   <title>Contact | Ayrton Porto</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="main.css">
   <link rel="icon" type="image/png" href="assets/ap_logo.png">
   <style>
-    /* Ensure consistent styling with index.html */
     :root {
       --bg-dark: #0B0C10;
       --bg-card: #1F2833;
@@ -36,39 +33,79 @@
       <a href="index.html" class="logo"><img src="assets/ap_logo.png" alt="AP.log" class="logo-img"></a>
       <nav>
         <a href="profile.html">/profile</a>
-
         <div class="dropdown">
           <button class="dropbtn">/projects ▾</button>
           <div class="dropdown-content">
             <a href="project_avid.html">AVID Journal</a>
-            <a href="project_mtg.html">MTG Data Analytics</a>
-            <a href="project_math.html">Math & Lean 4</a>
+            <a href="project_math.html">Math &amp; Lean 4</a>
+            <a href="project_mtg.html">ManaProof</a>
           </div>
         </div>
-
         <a href="contact.html">/contact</a>
       </nav>
     </div>
   </header>
 
   <main class="container">
+
     <section id="contact">
-      <h2 class="mono">> ./contact --finger</h2>
-      <p class="contact-info">
-        Currently seeking PhD opportunities and research collaborations. Reach out via Email or Instagram.
-      </p>
-      <div style="margin-top: 2rem;">
-        <p><strong>Email:</strong> ayrporto@gmail.com</p>
-        <p><strong>GitHub:</strong> <a href="https://github.com/ayrtonporto" target="_blank">github.com/ayrtonporto</a>
+      <h2 class="mono">&gt; ./contact --finger</h2>
+
+      <div class="blog-post" style="border-left: 1px dashed #FFFFFF; margin-bottom: 2rem;">
+        <p>
+          I am currently seeking a <strong>funded PhD position</strong> in AI and formal methods
+          (autoformalization, automated theorem proving, formal verification) starting in 2027.
         </p>
-        <p><strong>Instagram:</strong> <a href="https://www.instagram.com/ayr_porto/" target="_blank">@ayr_porto</a></p>
+        <p>
+          If you are a prospective supervisor, a researcher in a related area, or someone
+          interested in collaboration — I read every message.
+        </p>
+      </div>
+
+      <div class="dashboard-card" style="margin-bottom: 0;">
+        <div class="card-content">
+          <div style="display: grid; gap: 1rem;">
+            <div>
+              <span class="mono" style="color: var(--accent-cyan);">Email</span><br>
+              <a href="mailto:ayrporto@gmail.com">ayrporto@gmail.com</a>
+            </div>
+            <div>
+              <span class="mono" style="color: var(--accent-cyan);">GitHub</span><br>
+              <a href="https://github.com/ayrtonporto" target="_blank">github.com/ayrtonporto</a>
+            </div>
+            <div>
+              <span class="mono" style="color: var(--accent-cyan);">Twitter / X</span><br>
+              <a href="https://x.com/AyrPorto" target="_blank">@AyrPorto</a>
+            </div>
+            <div>
+              <span class="mono" style="color: var(--accent-cyan);">LinkedIn</span><br>
+              <a href="https://www.linkedin.com/in/ayrporto/" target="_blank">linkedin.com/in/ayrporto</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-image-wrapper">
+          <img src="assets/congress_photo.jpg" alt="Ayrton Porto" class="card-image">
+        </div>
       </div>
     </section>
+
   </main>
 
+  <a href="#" class="back-to-top mono">[RETURN TO ROOT]</a>
+
   <footer>
-    <p class="mono" style="text-align: center; color: var(--accent-muted); font-size: 0.8rem; padding: 3rem 0;">EOF | ©
-      2025 Ayrton Porto</p>
+    <div class="container" style="text-align: center;">
+      <p style="margin-bottom: 0.5rem;">
+        <a href="https://github.com/ayrtonporto" target="_blank">[GitHub]</a>
+        &nbsp;&nbsp;
+        <a href="https://x.com/AyrPorto" target="_blank">[Twitter]</a>
+        &nbsp;&nbsp;
+        <a href="https://www.linkedin.com/in/ayrporto/" target="_blank">[LinkedIn]</a>
+        &nbsp;&nbsp;
+        <a href="mailto:ayrporto@gmail.com">[Email]</a>
+      </p>
+      <p class="mono" style="color: var(--accent-muted); font-size: 0.8rem;">EOF | &copy; 2026 Ayrton Porto</p>
+    </div>
   </footer>
 
 </body>

@@ -39,8 +39,8 @@
           <button class="dropbtn">/projects ▾</button>
           <div class="dropdown-content">
             <a href="project_avid.html">AVID Journal</a>
-            <a href="project_mtg.html">MTG Data Analytics</a>
             <a href="project_math.html">Math &amp; Lean 4</a>
+            <a href="project_mtg.html">ManaProof</a>
           </div>
         </div>
         <a href="contact.html">/contact</a>
@@ -49,7 +49,6 @@
   </header>
 
   <main class="container">
-    <main class="container">
 
       <!-- Who Am I Section -->
       <section id="about">
@@ -72,8 +71,7 @@
             </p>
           </div>
           <div class="card-image-wrapper">
-            <img src="assets/congress_photo.jpg" alt="Ayrton at Congress" class="card-image"
-              onerror="this.parentElement.innerHTML='<div class=\'img-placeholder mono\'>[IMG: congress_photo.jpg]</div>'">
+            <img src="assets/congress_photo.jpg" alt="Ayrton at Congress" class="card-image">
           </div>
         </div>
       </section>
@@ -149,12 +147,21 @@
 
         <h3 class="mono section-title">&gt;&gt; ./experiments --current</h3>
         <p>
-          Currently developing <strong>AViD Journal</strong>, an end-to-end pipeline for automated
-          mathematical paper verification. The system ingests LaTeX files, segments them into
-          definitions, theorems, and proofs, translates them to Coq via the Claude API, and
-          formally verifies them using the Rocq prover. Separately, I am formalizing my
-          Licenciatura thesis on distributive lattice duality in Lean 4.
+          Currently developing <strong>AViD Journal</strong>, a novelty-assessment instrument for
+          formalized mathematics. Built on Lean 4 and mathlib, it evaluates whether a theorem is
+          genuinely new across three dimensions: existence (has it been proven before?),
+          triviality (can standard tactics close it?), and proof distance (how different is the
+          argument?). Separately, I am formalizing my Licenciatura thesis on distributive
+          lattice duality in Lean 4.
         </p>
+
+        <h3 class="mono section-title">&gt;&gt; ./fellowships --list</h3>
+        <ul class="pipeline-list" style="border-left-style: dashed; border-left-color: #CCCCCC;">
+          <li class="pipeline-item">
+            <span class="pipeline-title" style="color:#CCCCCC;">Apart Research — Secure Program Synthesis Fellowship</span>
+            Fellow Researcher, 2026. Developing fidelity metrics for cross-paradigm proof translation (BabelBench).
+          </li>
+        </ul>
 
         <h3 class="mono section-title">&gt;&gt; ./mission --target</h3>
         <p>
@@ -184,14 +191,23 @@
         </div>
       </section>
 
-    </main>
   </main>
 
   <a href="#" class="back-to-top mono">[RETURN TO ROOT]</a>
 
   <footer>
-    <p class="mono" style="text-align: center; color: var(--accent-muted); font-size: 0.8rem; padding: 3rem 0;">
-      EOF | &copy; 2026 Ayrton Porto</p>
+    <div class="container" style="text-align: center;">
+      <p style="margin-bottom: 0.5rem;">
+                <a href="https://github.com/ayrtonporto" target="_blank">[GitHub]</a>
+        &nbsp;&nbsp;
+        <a href="https://x.com/AyrPorto" target="_blank">[Twitter]</a>
+        &nbsp;&nbsp;
+        <a href="https://www.linkedin.com/in/ayrporto/" target="_blank">[LinkedIn]</a>
+        &nbsp;&nbsp;
+        <a href="mailto:ayrporto@gmail.com">[Email]</a>
+      </p>
+      <p class="mono" style="color: var(--accent-muted); font-size: 0.8rem;">EOF | &copy; 2026 Ayrton Porto</p>
+    </div>
   </footer>
 
 </body>

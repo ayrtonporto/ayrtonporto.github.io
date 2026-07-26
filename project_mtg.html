@@ -4,14 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MTG Analytics | Ayrton Porto</title>
+    <title>ManaProof | Ayrton Porto</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="main.css">
     <link rel="icon" type="image/png" href="assets/ap_logo.png">
+    <style>
+        :root {
+            --bg-dark: #0B0C10;
+            --bg-card: #1F2833;
+            --accent-cyan: #66FCF1;
+            --accent-muted: #45A29E;
+            --text-main: #C5C6C7;
+            --text-header: #FFFFFF;
+            --border-color: #2e3d4d;
+            --font-serif: 'IBM Plex Serif', serif;
+            --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+            --container-width: 900px;
+        }
+    </style>
 </head>
 
 <body>
@@ -25,8 +37,8 @@
                     <button class="dropbtn">/projects ▾</button>
                     <div class="dropdown-content">
                         <a href="project_avid.html">AVID Journal</a>
-                        <a href="project_mtg.html">MTG Data Analytics</a>
-                        <a href="project_math.html">Math & Lean 4</a>
+                        <a href="project_math.html">Math &amp; Lean 4</a>
+                        <a href="project_mtg.html">ManaProof</a>
                     </div>
                 </div>
                 <a href="contact.html">/contact</a>
@@ -35,153 +47,125 @@
     </header>
 
     <main class="container">
-        <section id="intro">
-            <h2 class="mono">> ./projects --select "MTG Data"</h2>
-            <p class="lead" style="color:#E0C3FC;">Data Analytics applied to Magic: The Gathering</p>
+
+        <section id="overview">
+            <h2 class="mono">&gt; ./projects --select "ManaProof"</h2>
+            <p class="lead" style="color:var(--accent-cyan);">Data-Driven Commander Decks</p>
 
             <div class="dashboard-card" style="margin-top: 2rem;">
                 <div class="card-content">
+                    <h3 class="post-title" style="margin-top:0; font-size:1.5rem;">The Venture</h3>
                     <p>
-                        This line of work focuses on the use of data analysis and statistical modeling to study the
-                        Commander (EDH) format, with particular emphasis on identifying genuine card synergies,
-                        archetypal
-                        structure, and the effective relevance of cards within the metagame.
+                        <strong>ManaProof</strong> is a data-driven Magic: The Gathering venture.
+                        It applies data-science techniques to identify viable Commander decks
+                        from card collections, assembles them physically, and sells them as
+                        ready-to-play products — making Commander accessible to more players.
                     </p>
                     <p>
-                        Rather than reproducing existing tools, the goal is to correct and formalize prior approaches
-                        that
-                        lacked well-defined metrics, transforming them into analytical instruments that are
-                        interpretable,
-                        reproducible, and methodologically sound.
+                        <span class="mono" style="color: var(--accent-cyan);">250+ decks sold</span> &bull;
+                        Active since 2025
                     </p>
                 </div>
                 <div class="card-image-wrapper">
-                    <img src="assets/mtg_card_intro.png" alt="MTG Data Intro" class="card-image"
-                        onerror="this.parentElement.innerHTML='<div class=\'img-placeholder mono\'>[IMG: mtg_card_intro.png]</div>'">
+                    <img src="assets/mtg_card_intro.png" alt="ManaProof" class="card-image">
                 </div>
             </div>
         </section>
 
-        <section id="pyedhrec">
-            <h2 class="mono">> ./pyedhrec --status active</h2>
-            <h3 class="post-title" style="color: #E0C3FC;">pyEDHREC</h3>
-            <p class="mono" style="color: #9D50BB; margin-bottom: 1rem;">Metric-based reformulation of synergy analysis
-                in Commander</p>
-
-            <div class="dashboard-card reverse">
-                <div class="card-content">
-                    <p>
-                        The pyEDHREC project existed previously as an EDHREC-inspired implementation, but it suffered
-                        from
-                        fundamental issues: unstable results, absence of explicit metrics, and limited explanatory
-                        power.
-                    </p>
-                    <p>
-                        The work presented here consists of a complete methodological renewal, introducing:
-                    </p>
-                    <ul class="pipeline-list">
-                        <li class="pipeline-item">
-                            <span class="pipeline-title">Formal Metrics</span>
-                            Modeling the probability of a card appearing conditional on a commander ($P(x|c)$).
-                        </li>
-                        <li class="pipeline-item">
-                            <span class="pipeline-title">Objective Criteria</span>
-                            Identifying informative card sets $I(c)$.
-                        </li>
-                        <li class="pipeline-item">
-                            <span class="pipeline-title">Extremal Measures</span>
-                            Using $p_{\max}$ to detect strong strategic dependencies.
-                        </li>
-                    </ul>
-                    <p class="mono" style="font-size: 0.9rem; color:#E0C3FC; margin-top: 1rem;">
-                        [STATUS: Active and Functional]<br>
-                        [CONTRIBUTION: Metric formalization]
-                    </p>
-                </div>
-                <div class="card-image-wrapper">
-                    <img src="assets/mtg_card_pyedhrec.png" alt="pyEDHREC Analysis" class="card-image"
-                        onerror="this.parentElement.innerHTML='<div class=\'img-placeholder mono\'>[IMG: mtg_card_pyedhrec.png]</div>'">
-                </div>
+        <!-- Product images — placeholder section -->
+        <section id="products">
+            <h2 class="mono">&gt; ./products --gallery</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+                <div class="img-placeholder mono" style="height: 250px;">[Product photo 1]</div>
+                <div class="img-placeholder mono" style="height: 250px;">[Product photo 2]</div>
+                <div class="img-placeholder mono" style="height: 250px;">[Product photo 3]</div>
             </div>
         </section>
 
-        <section id="clustering">
-            <h2 class="mono">> ./clustering --status legacy</h2>
-            <h3 class="post-title" style="color: #E0C3FC;">Clustering EDH</h3>
-            <p class="mono" style="color: #9D50BB; margin-bottom: 1rem;">Unsupervised deck classification: limits and
-                insights</p>
-
-            <div class="dashboard-card">
-                <div class="card-content">
-                    <p>
-                        As a natural extension of the previous work, unsupervised clustering techniques were explored to
-                        group Commander decks according to structural similarity.
-                    </p>
-                    <p>
-                        While these methods produced reasonable groupings, the analysis showed that they do not provide
-                        significant new insight beyond existing and well-documented approaches. Consequently, the
-                        project
-                        was discontinued as a tool, but retained as a theoretical and methodological case study.
-                    </p>
-                    <div style="margin-top: 1.5rem; padding: 1rem; border: 1px dashed #2e3d4d; background: #1a1a1a;">
-                        <p class="mono" style="color: #66FCF1; margin-top: 0;">>> REFERENCE_RECOMMENDATION</p>
-                        <p>
-                            For the state-of-the-art in EDH deck clustering, referencing a project that utilizes the
-                            full
-                            EDHREC dataset:
-                        </p>
-                        <a href="https://luckypaper.co/resources/commander-map/" target="_blank"
-                            style="color: #E0C3FC; text-decoration: underline;">
-                            Lucky Paper's Commander Map ->
-                        </a>
-                    </div>
-                </div>
-                <div class="card-image-wrapper">
-                    <img src="assets/mtg_card_clustering.png" alt="Clustering Visualization" class="card-image"
-                        onerror="this.parentElement.innerHTML='<div class=\'img-placeholder mono\'>[IMG: mtg_card_clustering.png]</div>'">
-                </div>
+        <!-- How it works: data science angle -->
+        <section id="datascience">
+            <h2 class="mono">&gt; ./view --data-science</h2>
+            <div class="blog-post" style="border-left: 1px dashed #FFFFFF;">
+                <p>
+                    Card collections are analyzed with techniques from data science and
+                    information theory to surface non-obvious card-commander synergies
+                    and build coherent, playable decks.
+                </p>
+                <p>
+                    The result is decks that play tighter than randomly assembled piles — built
+                    from undervalued cards, sold at accessible prices.
+                </p>
             </div>
         </section>
 
-        <section id="outlook">
-            <h2 class="mono">> ./outlook --future</h2>
+        <!-- Pipeline: supporting evidence -->
+        <section id="pipeline">
+            <h2 class="mono">&gt; ./view --pipeline</h2>
+            <ul class="pipeline-list">
+                <li class="pipeline-item">
+                    <span class="pipeline-title">1. Inventory Analysis</span>
+                    Load and normalize card collections for consistent matching across the pipeline.
+                </li>
+                <li class="pipeline-item">
+                    <span class="pipeline-title">2. Deck Discovery</span>
+                    Cross-reference available cards against Commander deck data to identify
+                    which decks can be built from the collection.
+                </li>
+                <li class="pipeline-item">
+                    <span class="pipeline-title">3. Optimization</span>
+                    Complete partial decks with synergistic additions, flagging what's needed
+                    vs. what's already owned.
+                </li>
+                <li class="pipeline-item">
+                    <span class="pipeline-title">4. Extraction &amp; Assembly</span>
+                    Generate physical pick lists with conflict resolution — when two decks
+                    compete for the same card, the system picks the best assignment.
+                </li>
+                <li class="pipeline-item">
+                    <span class="pipeline-title">5. Catalog &amp; Pricing</span>
+                    Output ready-to-import deck lists with pricing data for the storefront.
+                </li>
+            </ul>
+        </section>
 
-            <div class="dashboard-card">
-                <div class="card-content">
-                    <p>This MTG Data Analytics line aims to:</p>
-                    <ul style="list-style: none; padding-left: 0;">
-                        <li style="margin-bottom: 0.5rem;"><span style="color:#9D50BB;">>></span> Develop explanatory,
-                            metric-driven tools rather than purely descriptive ones.</li>
-                        <li style="margin-bottom: 0.5rem;"><span style="color:#9D50BB;">>></span> Produce technical
-                            articles on
-                            the limitations of popular data-analysis methods in complex games.</li>
-                        <li style="margin-bottom: 0.5rem;"><span style="color:#9D50BB;">>></span> Contribute to a more
-                            rigorous
-                            understanding of the Commander metagame.</li>
-                    </ul>
-                    <p style="margin-top: 1rem; border-top: 1px solid #2e3d4d; padding-top: 1rem;">
-                        <span class="mono" style="color: #E0C3FC;">[CURRENTLY ANALYZING]:</span><br>
-                        We are currently applying these tools to analyze the <strong>CEDH (Competitive EDH)</strong>
-                        metagame.
-                    </p>
-                </div>
-                <div class="card-image-wrapper">
-                    <img src="assets/mtg_card_future.png" alt="Future Analysis" class="card-image"
-                        onerror="this.parentElement.innerHTML='<div class=\'img-placeholder mono\'>[IMG: mtg_card_future.png]</div>'">
-                </div>
+        <section id="stack">
+            <h2 class="mono">&gt; ./stack --list</h2>
+            <div class="tech-grid">
+                <span class="tech-item mono">Python</span>
+                <span class="tech-item mono">Pandas</span>
+                <span class="tech-item mono">EDHREC API</span>
+                <span class="tech-item mono">Scryfall API</span>
+                <span class="tech-item mono">Moxfield</span>
+                <span class="tech-item mono">Concurrent Futures</span>
+                <span class="tech-item mono">Lift / Entropy</span>
+                <span class="tech-item mono">CSV/ETL</span>
             </div>
         </section>
 
-        <section>
-            <h2 class="mono">> ./links --external</h2>
-            <a href="https://github.com/ayrtonporto/mtg-analysis" target="_blank" class="project-btn"
-                style="border-color:#9D50BB; color:#9D50BB;">View Repository -></a>
+        <section id="links">
+            <h2 class="mono">&gt; ./links --external</h2>
+            <a href="https://github.com/ayrtonporto/mtg-collection-recommendation" target="_blank" class="project-btn">[Pipeline Repository]</a>
+            <a href="https://www.instagram.com/manaproofok/" target="_blank" class="project-btn" style="border-color:#E0C3FC; color:#E0C3FC;">[@manaproofok]</a>
+            <a href="#" class="project-btn" style="border-color:#CCCCCC; color:#CCCCCC;">[Mercado Libre — soon]</a>
         </section>
 
     </main>
 
+    <a href="#" class="back-to-top mono">[RETURN TO ROOT]</a>
+
     <footer>
-        <p class="mono">EOF | © 2025 Ayrton Porto</p>
+        <div class="container" style="text-align: center;">
+            <p style="margin-bottom: 0.5rem;">
+                <a href="https://github.com/ayrtonporto" target="_blank">[GitHub]</a>
+                &nbsp;&nbsp;
+                <a href="https://x.com/AyrPorto" target="_blank">[Twitter]</a>
+                &nbsp;&nbsp;
+                <a href="https://www.linkedin.com/in/ayrporto/" target="_blank">[LinkedIn]</a>
+                &nbsp;&nbsp;
+                <a href="mailto:ayrporto@gmail.com">[Email]</a>
+            </p>
+            <p class="mono">EOF | &copy; 2026 Ayrton Porto</p>
+        </div>
     </footer>
 
 </body>

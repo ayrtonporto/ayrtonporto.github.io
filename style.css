@@ -145,7 +145,7 @@ nav a:hover,
 
 .dropdown-content a:hover {
   background-color: rgba(102, 252, 241, 0.1);
-  color: var(--accent-header);
+  color: var(--text-header);
 }
 
 .dropdown:hover .dropdown-content {
