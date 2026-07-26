@@ -6,7 +6,12 @@
 \usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{titlesec}
+\usepackage{graphicx}
 
+% ── Icons path ──
+\graphicspath{{icons/}}
+
+% ── Colors ──
 \definecolor{accent}{HTML}{1F2833}
 \hypersetup{colorlinks=true, linkcolor=accent, urlcolor=accent,
   pdfauthor={Ayrton Porto}, pdftitle={Academic CV --- Ayrton Porto}}
@@ -23,6 +28,9 @@
 \setlength{\parskip}{0.3em}
 \setlength{\parindent}{0pt}
 
+% ── Inline icon helper ──
+\newcommand{\ic}[1]{\includegraphics[height=0.85em]{#1.png}}
+
 \begin{document}
 
 % ═══ HEADER ═══
@@ -30,13 +38,13 @@
   {\Huge\bfseries Ayrton Porto}\\[0.3em]
   {\large Mathematician · Formal Methods · Autoformalization}\\[0.5em]
   {\small
-    \href{mailto:ayrporto@gmail.com}{ayrporto@gmail.com}
-    \hspace{1em} \( \cdot \) \hspace{1em}
-    \href{https://ayrtonporto.github.io}{ayrtonporto.github.io}
-    \hspace{1em} \( \cdot \) \hspace{1em}
-    \href{https://github.com/ayrtonporto}{github/ayrtonporto}
-    \hspace{1em} \( \cdot \) \hspace{1em}
-    \href{https://www.linkedin.com/in/ayrtonporto/}{linkedin/in/ayrporto}
+    \ic{email} \href{mailto:ayrporto@gmail.com}{ayrporto@gmail.com}
+    \hspace{1.2em}
+    \ic{web} \href{https://ayrtonporto.github.io}{ayrtonporto.github.io}
+    \hspace{1.2em}
+    \ic{github} \href{https://github.com/ayrtonporto}{/ayrtonporto}
+    \hspace{1.2em}
+    \ic{linkedin} \href{https://www.linkedin.com/in/ayrtonporto/}{/in/ayrporto}
   }
 \end{center}
 
@@ -52,8 +60,7 @@ fidelity metrics for machine-generated proofs.
 
 \textbf{Universidad Nacional del Centro de la Provincia de Buenos Aires (UNICEN)}
 \hfill 2020--2025\\
-Tandil, Argentina\\
-Licenciatura en Ciencias Matemáticas
+Licenciatura en Ciencias Matemáticas --- Tandil, Argentina
 
 \begin{itemize}
   \item GPA: \textbf{9.41/10.00}. Five-year degree, equivalent to a combined B.S.\ + M.S.
@@ -74,7 +81,7 @@ Licenciatura en Ciencias Matemáticas
 \end{itemize}
 
 \vspace{0.3em}
-\textbf{Apart Research --- Secure Program Synthesis Fellowship} \hfill 2026 (Jan--Oct)\\
+\textbf{Apart Research --- Secure Program Synthesis Fellowship} \hfill 2026 (Jun--Oct)\\
 \textit{Fellow Researcher · International collaboration}
 
 \begin{itemize}
@@ -87,7 +94,8 @@ Licenciatura en Ciencias Matemáticas
 \textit{Undergraduate Research Fellow · UNICEN}
 
 \begin{itemize}
-  \item Research in algebraic logic under W.\ Zuluaga Botero; studied duality theory for bounded distributive lattices.
+  \item Research in algebraic logic under W.\ Zuluaga Botero.
+  \item Studied duality theory for bounded distributive lattices, culminating in the Licenciatura thesis.
 \end{itemize}
 
 % ═══ TALKS ═══
@@ -96,7 +104,7 @@ Licenciatura en Ciencias Matemáticas
 \textit{An Introduction to Lean 4} --- Taller Lean, Nodo Serrano \hfill 2026\\
 \textit{AViD Journal: LLM-Assisted Autoformalization} --- Deep Learning Spring School (poster) \hfill 2025\\
 \textit{Priestley Duality for Bounded Distributive Lattices} --- Thesis defense, UNICEN \hfill 2025\\
-\textit{Multivariate Integration via Space-Filling Curves} --- XII Congreso Mar y Sierras, Argentina \hfill 2023
+\textit{Multivariate Integration via Space-Filling Curves} --- XII Congreso Mar y Sierras \hfill 2023
 
 % ═══ TEACHING ═══
 \section{Teaching Experience}
@@ -113,10 +121,10 @@ Courses: Discrete Mathematics, Linear Algebra, Calculus I.
 % ═══ AWARDS ═══
 \section{Awards \& Fellowships}
 
-\begin{tabular}{@{}p{0.72\textwidth}r@{}}
+\begin{tabular}{@{}p{0.68\textwidth}r@{}}
   Apart Research --- Secure Program Synthesis Fellowship & 2026 \\
-  Beca Santander --- Academic Merit Scholarship & 2024 \\
-  Beca CIN --- Consejo Interuniversitario Nacional & 2023--2025 \\
+  Santander Scholarship --- Academic Merit & 2024 \\
+  CIN Scholarship --- Consejo Interuniversitario Nacional & 2023--2025 \\
   IMPA Summer Program --- Rio de Janeiro, Brazil & 2023 \\
   \quad {\small Course: \textit{Computa\c{c}\~{a}o, l\'{o}gica e teoria dos conjuntos}. Grade: A--.} & \\
   Honorable Mention --- Argentine Mathematical Olympiad (OMA) & 2017, 2019 \\
