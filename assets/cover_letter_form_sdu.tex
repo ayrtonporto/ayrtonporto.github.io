@@ -1,0 +1,85 @@
+% !TEX program = xelatex
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=0.85in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{titlesec}
+
+\definecolor{accent}{HTML}{1F2833}
+\hypersetup{colorlinks=true, linkcolor=accent, urlcolor=accent,
+  pdfauthor={Ayrton Porto}, pdftitle={Cover Letter --- PhD Application, FORM, SDU}}
+
+\setlist{nosep,leftmargin=*,itemsep=0.3ex,parsep=0.3ex}
+
+\titleformat{\section}
+  {\normalfont\large\bfseries\color{accent}}{}{0em}{}
+  [\vspace{-0.7em}\rule{\textwidth}{0.4pt}]
+\titlespacing{\section}{0pt}{1.2em}{0.5em}
+
+\pagestyle{empty}
+\setlength{\parskip}{0.6em}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+% ═══ HEADER ═══
+\begin{center}
+  {\Huge\bfseries Ayrton Porto}\\[0.3em]
+  {\large Mathematician · Formal Methods · Autoformalization}\\[0.5em]
+  {\small
+    \href{mailto:ayrporto@gmail.com}{ayrporto@gmail.com}
+    \hspace{1em} \( \cdot \) \hspace{1em}
+    \href{https://ayrtonporto.github.io}{ayrtonporto.github.io}
+    \hspace{1em} \( \cdot \) \hspace{1em}
+    \href{https://github.com/ayrtonporto}{github.com/ayrtonporto}
+    \hspace{1em} \( \cdot \) \hspace{1em}
+    \href{https://www.linkedin.com/in/ayrtonporto/}{linkedin.com/in/ayrporto}
+  }
+\end{center}
+
+\vspace{1em}
+
+% ═══ RECIPIENT ═══
+\textbf{FORM Admissions Committee}\\
+Centre for Formal Methods and Future Computing\\
+Department of Mathematics and Computer Science\\
+University of Southern Denmark (SDU)\\[0.5em]
+Odense, Denmark
+
+\vspace{1em}
+
+Dear FORM Admissions Committee,
+
+I am writing to apply for the PhD position in Computer Science with emphasis on formal methods at the Centre for Formal Methods and Future Computing, University of Southern Denmark. I am a mathematician from UNICEN, Argentina (Licenciatura en Ciencias Matemáticas, GPA 9.41/10.00, graduating 2025), and my research sits precisely at the intersection FORM occupies: combining human mathematical insight with artificial intelligence to build reliable, formally verified digital systems.
+
+% ═══ WHY FORM ═══
+\subsection*{Why FORM}
+
+FORM's vision --- \textit{``to unlock the combined potential of humans and AI for the rapid and reliable construction of digital systems guided by rigorous mathematical foundations''} --- describes exactly the problem I have been working on. Your use of the Computer Science Library (CSLib) in Lean as the primary instrument resonates directly with my experience: Lean 4 is my main proof assistant, and I have spent the past year building systems that bridge informal mathematics with formal verification.
+
+% ═══ WHAT I BRING ═══
+\subsection*{What I bring}
+
+My primary research project, \textbf{AViD Journal}, is an end-to-end LLM-assisted autoformalization pipeline. It ingests mathematical papers, formalizes their theorems in Lean 4, and runs novelty detection against Mathlib along three axes: existence, non-triviality, and structural proof-distance. A central finding of this work is that \textit{fidelity \(\neq\) compilation} --- a formalization can type-check and still fail to preserve the logical meaning of the original theorem. This is precisely the kind of challenge a universal repository of formalized computing must address.
+
+Through the \textbf{Apart Research Secure Program Synthesis Fellowship (2026)}, I am developing \textbf{BabelBench}, a cross-paradigm benchmark that measures whether LLM translations across formal systems (Lean 4, Coq, TLA+, Dafny) preserve logical meaning. The fidelity metrics are checked by real proof verifiers and the Z3 solver --- no LLM-based evaluation. This work has given me hands-on experience with multiple formalisms and a deep appreciation for the difficulty of faithful translation between them.
+
+I am also formalizing my Licenciatura thesis --- Priestley duality for bounded distributive lattices --- in Lean 4, contributing to the growing body of formalized mathematics in the Lean ecosystem.
+
+% ═══ WHY I FIT ═══
+\subsection*{Why I fit FORM}
+
+FORM's stated research topics --- logic, programming languages, distributed systems, security --- all benefit from a researcher who understands both the mathematical foundations and the AI systems that can accelerate formalization. My background in algebraic logic gives me the theoretical depth; my work on AViD and BabelBench gives me the engineering pragmatism to build systems that actually work.
+
+I am seeking a PhD starting in late 2026 or early 2027, which aligns with your timeline. I am open to relocation to Odense or Vejle and eager to contribute to FORM's mission from day one.
+
+My CV, portfolio, and project repositories are available at \href{https://ayrtonporto.github.io}{ayrtonporto.github.io}. I would welcome the opportunity to discuss how my background in autoformalization and formal methods can contribute to FORM's research agenda.
+
+\vspace{1em}
+
+Sincerely,\\[1.5em]
+\textbf{Ayrton Porto}
+
+\end{document}
