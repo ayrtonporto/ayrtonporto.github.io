@@ -6,10 +6,14 @@
 \usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{titlesec}
+\usepackage{graphicx}
+
+\graphicspath{{icons/}}
+\newcommand{\ic}[1]{\includegraphics[height=0.85em]{#1.png}}
 
 \definecolor{accent}{HTML}{1F2833}
 \hypersetup{colorlinks=true, linkcolor=accent, urlcolor=accent,
-  pdfauthor={Ayrton Porto}, pdftitle={Cover Letter --- PhD Application, FORM, SDU}}
+  pdfauthor={Ayrton Porto}, pdftitle={Cover Letter — PhD Application, FORM, SDU}}
 
 \setlist{nosep,leftmargin=*,itemsep=0.3ex,parsep=0.3ex}
 
@@ -27,15 +31,16 @@
 % ═══ HEADER ═══
 \begin{center}
   {\Huge\bfseries Ayrton Porto}\\[0.3em]
-  {\large Mathematician · Formal Methods · Autoformalization}\\[0.5em]
+  {\large Mathematician · Formal Methods · Autoformalization}\\[0.3em]
+  {\normalsize\bfseries\color{accent}Cover Letter — PhD Application}\\[0.5em]
   {\small
-    \href{mailto:ayrporto@gmail.com}{ayrporto@gmail.com}
-    \hspace{1em} \( \cdot \) \hspace{1em}
-    \href{https://ayrtonporto.github.io}{ayrtonporto.github.io}
-    \hspace{1em} \( \cdot \) \hspace{1em}
-    \href{https://github.com/ayrtonporto}{github.com/ayrtonporto}
-    \hspace{1em} \( \cdot \) \hspace{1em}
-    \href{https://www.linkedin.com/in/ayrtonporto/}{linkedin.com/in/ayrporto}
+    \ic{email} \href{mailto:ayrporto@gmail.com}{ayrporto@gmail.com}
+    \hspace{1.2em}
+    \ic{web} \href{https://ayrtonporto.github.io}{ayrtonporto.github.io}
+    \hspace{1.2em}
+    \ic{github} \href{https://github.com/ayrtonporto}{/ayrtonporto}
+    \hspace{1.2em}
+    \ic{linkedin} \href{https://www.linkedin.com/in/ayrtonporto/}{/in/ayrporto}
   }
 \end{center}
 
@@ -52,30 +57,28 @@ Odense, Denmark
 
 Dear FORM Admissions Committee,
 
-I am writing to apply for the PhD position in Computer Science with emphasis on formal methods at the Centre for Formal Methods and Future Computing, University of Southern Denmark. I am a mathematician from UNICEN, Argentina (Licenciatura en Ciencias Matemáticas, GPA 9.41/10.00, graduating 2025), and my research sits precisely at the intersection FORM occupies: combining human mathematical insight with artificial intelligence to build reliable, formally verified digital systems.
+I am applying for a PhD position in computer science with emphasis on formal methods at the Centre for Formal Methods and Future Computing. I trained as a mathematician at UNICEN, Argentina (Licenciatura en Ciencias Matem\'aticas, GPA 9.41/10.00; a five-year degree equivalent to a combined B.Sc.\ and M.Sc., completed 2025). For the past year, however, my work has lived squarely inside formal methods: building AI-assisted systems that turn informal statements into machine-checked Lean, and measuring whether those translations actually preserve meaning. That is the exact intersection FORM occupies, and it is where I want to do my doctorate.
 
 % ═══ WHY FORM ═══
 \subsection*{Why FORM}
 
-FORM's vision --- \textit{``to unlock the combined potential of humans and AI for the rapid and reliable construction of digital systems guided by rigorous mathematical foundations''} --- describes exactly the problem I have been working on. Your use of the Computer Science Library (CSLib) in Lean as the primary instrument resonates directly with my experience: Lean 4 is my main proof assistant, and I have spent the past year building systems that bridge informal mathematics with formal verification.
+What drew me to this call specifically is your instrument: the Computer Science Library (CSLib) in Lean, with FORM as a founding player in its technical leadership. Lean 4 is my primary proof assistant, and I already work on the two problems a universal, AI-assisted repository must solve: generating formalizations at scale, and guaranteeing they are \emph{faithful} rather than merely well-typed. FORM's vision of combining human and machine effort for construction that is both rapid and reliable is, almost word for word, the problem statement of my current research. The breadth of the ACP section (theorem provers, type systems, programming languages, distributed systems) is also exactly where a researcher who bridges mathematical foundations and AI tooling can contribute across projects rather than in a single niche.
 
 % ═══ WHAT I BRING ═══
 \subsection*{What I bring}
 
-My primary research project, \textbf{AViD Journal}, is an end-to-end LLM-assisted autoformalization pipeline. It ingests mathematical papers, formalizes their theorems in Lean 4, and runs novelty detection against Mathlib along three axes: existence, non-triviality, and structural proof-distance. A central finding of this work is that \textit{fidelity \(\neq\) compilation} --- a formalization can type-check and still fail to preserve the logical meaning of the original theorem. This is precisely the kind of challenge a universal repository of formalized computing must address.
+Through the \textbf{Apart Research Secure Program Synthesis Fellowship (2026)}, I am building \textbf{BabelBench}, a benchmark that measures whether LLM translations of theorems across formal systems preserve logical meaning. It spans Lean 4 and Coq on the type-theoretic side and TLA+ and Dafny on the model-theoretic side (the specification and verification tools of the distributed and software systems FORM aims to formalize). Crucially, fidelity is judged by real proof verifiers and the Z3 solver, never by another language model. Designing these metrics forced me to work hands-on across four formalisms and to take seriously how easily a translation can typecheck while quietly changing what a statement means.
 
-Through the \textbf{Apart Research Secure Program Synthesis Fellowship (2026)}, I am developing \textbf{BabelBench}, a cross-paradigm benchmark that measures whether LLM translations across formal systems (Lean 4, Coq, TLA+, Dafny) preserve logical meaning. The fidelity metrics are checked by real proof verifiers and the Z3 solver --- no LLM-based evaluation. This work has given me hands-on experience with multiple formalisms and a deep appreciation for the difficulty of faithful translation between them.
+That concern is the core of my main research project, \textbf{AViD Journal}, an end-to-end AI-assisted autoformalization pipeline. It ingests research papers, formalizes their results in Lean 4, and checks novelty against Mathlib along three axes: existence, non-triviality, and structural proof-distance. Its central finding is blunt: \textit{fidelity \(\neq\) compilation}. A formalization can pass the kernel and still fail to mean the original theorem. For any repository that intends to hold formalized computing at scale, that gap between ``it compiles'' and ``it is faithful'' \emph{is} the problem, and I have spent a year building tooling to measure and narrow it.
 
-I am also formalizing my Licenciatura thesis --- Priestley duality for bounded distributive lattices --- in Lean 4, contributing to the growing body of formalized mathematics in the Lean ecosystem.
+On the foundational side, I am formalizing my Licenciatura thesis (Priestley duality for bounded distributive lattices with normal operators) in Lean 4, and my research background is in algebraic logic. That gives me the theoretical footing FORM values (logic, type systems, categories) alongside the systems-building experience above.
 
-% ═══ WHY I FIT ═══
-\subsection*{Why I fit FORM}
+% ═══ WHAT I WOULD PURSUE ═══
+\subsection*{What I would pursue at FORM}
 
-FORM's stated research topics --- logic, programming languages, distributed systems, security --- all benefit from a researcher who understands both the mathematical foundations and the AI systems that can accelerate formalization. My background in algebraic logic gives me the theoretical depth; my work on AViD and BabelBench gives me the engineering pragmatism to build systems that actually work.
+Concretely, I would bring these two threads directly into CSLib. On one side, an AI-assisted formalization workflow that helps populate the library faster; on the other, a fidelity layer, built on real verifiers and Z3 in the spirit of BabelBench rather than on LLM judgment, that certifies a machine-generated contribution actually captures its informal specification before it enters the repository. The failure modes I have catalogued in autoformalization are precisely the ones that would otherwise erode trust in a library built partly by machines. I would also be glad to push the cross-paradigm side of BabelBench toward FORM's systems work, connecting TLA+ and Dafny specifications to their Lean counterparts with verified fidelity. Equally, I would be happy to shape this within one of FORM's existing projects.
 
-I am seeking a PhD starting in late 2026 or early 2027, which aligns with your timeline. I am open to relocation to Odense or Vejle and eager to contribute to FORM's mission from day one.
-
-My CV, portfolio, and project repositories are available at \href{https://ayrtonporto.github.io}{ayrtonporto.github.io}. I would welcome the opportunity to discuss how my background in autoformalization and formal methods can contribute to FORM's research agenda.
+My CV, code, and project repositories are available at \href{https://ayrtonporto.github.io}{ayrtonporto.github.io}. I would welcome the chance to discuss where this fits best within FORM. I am available to begin immediately and can relocate on short notice; the late-2026 timeline also suits me well.
 
 \vspace{1em}
 
